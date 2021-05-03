@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  1. const userInfo = {
+    name: 'Aibol',
+    age: 29,
+  }
+  // Верна ли запись?
+  да
+
+  2. let userInfo = {
+  name: 'Aibol',
+  age: 29,
+  '12': 'Значение свойств',
+  }
+  console.log(userInfo[12])
+  // Что покажет консоль?
+  значение ключа "12" - "Значение свойств"
+
+
+  3. let userInfo = {
+  name: 'Aibol',
+  age: 29,
+  }
+  let user = userInfo
+  user.age = 18
+  console.log(userInfo.age)
+  // Что покажет консоль?
+  18, так как объект передается по ссылке
+
+  4. let userInfo = {
+  name: 'Aibol',
+  age: 29,
+  showInfo(){
+  console.log(`${this.name}`)
+  }
+  }
+  let user = userInfo
+  userInfo = null
+  console.log( user.showInfo() )
+  // Что покажет консоль?
+  Aibol
+
+  5. let userInfo = {
+  name: 'Aibol',
+  age: 29,
+  }
+  for(const key in userInfo){
+  const value = userInfo[key]
+  console.log(value)
+  }
+  // Что покажет консоль?
+  Aibol
+  29
+
+  6. let userInfo = {
+  name: 'Aibol',
+  age: 29,
+  address: {
+      city: 'Nur-Sultan',
+      street: 'Kenesary',
+  }
+  }
+  for(const key in userInfo.address){
+  console.log(userInfo.address[key])
+  }
+  // Что покажет консоль?
+  Nur-Sultan
+  Kenesary
+
+  7. const userInfo = {
+      name: 'Aibol',
+      age: 29,
+      'like javascript': true,
+  }
+  console.log(userInfo.'like javascript')
+  // Что покажет консоль?
+  ошибка? .'like javascript' так нельзя, можно достать с помощью userInfo['like javascript']
+</body>
+</html>

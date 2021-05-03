@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  1) Создайте функцию. Когда вызываете функцию, она должна показать в консоле текст “Hello World”.
+  <script>
+    function hello(){
+      console.log('Hello World');
+    }
+    hello();
+  </script>
+  2) Создайте функцию. Передайте этой функций 2 параметра. Функция должна вернуть сложение этих двух параметров и показать его в консоле.
+    <script>
+      function summ(a, b){
+        return a + b;
+      }
+      console.log(summ(5, 3));
+    </script>
+  3) Создайте объект. Внутри этого объекта должно быть 5 свойств (ключ, значение). 5-ое свойство должно быть функцией. Если обратиться к этой функции, она должна вернуть сложения 1-го и 2-го свойства.
+    <script>
+      let obj = {
+        "name1": 1,
+        "name2": 2,
+        "name3": null,
+        "name4": "value4",
+        "name5": function(){
+          return this.name1 + this.name2;
+        }
+      }
+      console.log(obj.name5());
+    </script>
+  4) Создайте в HTML div с id-шкой «app». Напишите внутри какое-нибудь слово. Теперь через JavaScript поменяйте это слово на другое.
+    <div id="app">Text before replace</div>
+    <script>
+      document.getElementById('app').innerText = 'Text after replace';
+    </script>
+  5) Создайте в HTML div с id-шкой «app». Напишите внутри какое-нибудь слово. Теперь через JavaScript поменяйте ему цвет на красный.
+    <div id="app1">color</div>
+    <script>
+      document.getElementById('app1').style = 'color: red;';
+    </script>
+  6) Создайте в HTML div с id-шкой «app». Напишите внутри какое-нибудь слово. Теперь через JavaScript поменяйте ему шрифт на 50 пикселей.
+    <div id="app2">font size</div>
+    <script>
+      document.getElementById('app2').style = 'font-size: 50px;';
+    </script>
+  7) Создайте в HTML div с id-шкой «app». Напишите внутри какое-нибудь слово. Создайте кнопку button. При нажатий на эту кнопку, поменяйте ему слово на другое.
+    <div id="app3">button text</div>
+    <button onclick="replaceText()">click me</button>
+    <script>
+      function replaceText(){
+        document.getElementById('app3').innerText = 'Text replaced by button click';
+      }
+    </script>
+  8) Создайте в HTML div с id-шкой «app». Напишите внутри какое-нибудь слово. При клике на этот div, должно на консоле появиться слово «Кликнул»
+    <div id="app4" onclick="app4Clicked()">click on DIV</div>
+    <script>
+      function app4Clicked(){
+        console.log('Кликнул');
+      }
+    </script>
+  9) Создайте в HTML div с id-шкой «app». Напишите внутри какое-нибудь слово. При наведение мышки на этот div, должно на консоле появиться слово «Навел мышку»
+    <div id="app5" onmouseover="app5Hovered()">click on DIV</div>
+    <script>
+      function app5Hovered(){
+        console.log('Навел мышку');
+      }
+    </script>
+  10) Создайте в HTML div с id-шкой «app». Напишите внутри какое-нибудь слово. Если навел мышку а потом убираешь с этого div-а, должно на консоле появиться слово «Убрал мышку»
+  <div id="app6" onmouseout="app6Leave()">click on DIV</div>
+    <script>
+      function app6Leave(){
+        console.log('Убрал мышку');
+      }
+    </script>
+</body>
+</html>
