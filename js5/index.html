@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  1) Существует два варианта синтаксиса для создания пустого массива. Напишите их.
+  let arr = new Array();
+  arr = [];
+
+2) Создайте массив arr. Занесите туда 5 названий машин.
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+3) Покажите в консоли второй индекс массива arr
+  console.log(arr[2]);
+4) Покажите в консоли первое значение массива arr
+  console.log(arr[0]);
+5) Занесите 6-ую машину в массив (без метода push, unshift)
+  arr = arr.splice(-1, 0, 'Lada');
+6) Покажите длину массива
+  console.log(arr.length);
+7) Создайте массив arr2. Занесите туда: строку, цифру, boolean значение, объект (с двумя ключами: name и age), функцию(возвращает текст: ‘Hello’)
+  let arr2 = [
+    'string',
+    25,
+    true,
+    {
+      name: 'Ivan',
+      age: '25'
+    },
+    function(){
+      return 'Hello';
+    }
+  ]
+8) Покажите в консоли (массив arr2): строку, цифру, boolean значение, объект (значение ключей: name и age), функцию(текст: ‘Hello’)
+    console.log(arr2[0]);
+    console.log(arr2[1]);
+    console.log(arr2[2]);
+    console.log(arr2[3]);
+    console.log(arr2[3].name);
+    console.log(arr2[3].age);
+    console.log(arr2[4]());
+
+9) Создайте массив arr3. Занесите туда 5 названий городов. Сделайте перебор массива с помощью цикла for и for in
+    let arr3 = ['Moscow', 'Saint-Petersburg', 'Tver', 'Kaluga', 'Sochi'];
+
+    for(let i = 0; i < arr3.length; i++){
+      console.log(arr3[i]);
+    }
+
+    for(let index in arr3){
+      console.log(arr3[index]);
+    }
+
+10) let arr4 = [‘Aibol’, ‘Nikita’, ‘Sergei’]. Удалите с массива Sergei, с помощью метода splice.
+    arr4.splice(-1,1);
+
+11) let arr4 = [‘Aibol’, ‘Nikita’, ‘Sergei’, ‘Anton’, ‘Dima’]. Удалите с массива Anton и  Dima, с помощью метода splice.
+    arr4.splice(-2, 2);
+
+12) let arr4 = [‘Aibol’, ‘Nikita’, ‘Sergei’, ‘Anton’, ‘Dima’]. Добавьте в массив Kiril с помощью метода splice.
+  arr4.splice(-1, 0, 'Kirill');
+
+13) let arr4 = [‘Aibol’, ‘Nikita’, ‘Sergei’, ‘Anton’, ‘Dima’]. Добавьте в массив Anna и Katya  с помощью метода splice.
+  arr4.splice(-1, 0, 'Anna', 'Katya');
+
+14) let arr5 = [‘Aibol’, ‘Nikita’, ‘Sergei’]. Создайте новый массив и дублируйте туда Sergei (с помощью метода slice).
+    let arr55 = arr5.slice(2);
+
+15) let arr5 = [‘Aibol’, ‘Nikita’, ‘Sergei’]. Создайте новый массив и дублируйте туда весь массив arr5 (с помощью метода slice).
+    let arr55 = arr5.slice(0);
+16) let arr6 = [‘Aibol’, ‘Nikita’, ‘Sergei’]. Сделайте дублирование этого массива с помощью concat.
+    let arr66 = [].concat(arr5);
+
+17) Приведите пример с indexOf
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  console.log(`Индекс шевроле - ${arr.indexOf('Chevrolet')}`;
+18) Приведите пример с lastIndexOf
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  console.log(`Volkswagen последний раз замечен по индексу -  ${arr.lastIndexOf('Volkswagen')}`;
+
+19) Приведите пример с includes
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  if(arr.includes('Mercedes')){
+    console.log('Mercedes is here');
+  }
+
+20) Приведите пример с find
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  arr.find(function(elem){
+    return elem == 'BMW';
+  });
+
+21) Приведите пример с findIndex
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  arr.findIndex(function(elem){
+    return elem == 'Ford';
+  });
+
+22) Приведите пример с filter
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  arr.filter(function(elem){
+      return elem.indexOf('e') >= 0;
+  })
+23) Приведите пример с sort
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  arr.sort();
+24) Приведите пример с reverse
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  arr.reverse(); //Ford, Chevrolet, Volkswagen, Mercedes, BMW
+
+25) Приведите пример с split
+  let str = 'BMW,Mercedes,Volkswagen,Chevrolet,Ford';
+  let arr = str.split(','); // ['BMW', 'Mercedes', 'Volkswagen', 'Cheverolet', 'Ford'];
+
+26) Приведите пример с join
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  let str = arr.join(', '); //'BMW, Mercedes, Volkswagen, Chevrolet, Ford';
+27) Приведите пример с map
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  arr.map(function(val){
+    console.log(val);
+  });
+28) Приведите пример с isArray
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  if(Array.isArray(arr)){
+    console.log('is array');
+  }else{
+    console.log('not array');
+  }
+29) Приведите пример с forEach
+  let arr = ['BMW', 'Mercedes', 'Volkswagen', 'Chevrolet', 'Ford'];
+  arr.forEach(function(elem, i){
+    console.log(`${i} - ${elem}`);
+  });
+30) Приведите пример с try catch
+  let str = 'i am string';
+  try{
+    str.map(function(val){
+      console.log(val);
+    });
+  }catch(e){
+    console.log(e);
+  }
+</body>
+</html>
