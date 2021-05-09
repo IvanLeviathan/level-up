@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  1. Как объявляется Декларативная функция.
+
+  function hello() {
+      return "Hello World";
+  }
+
+2. Напишите как правильно писать имена для функций (напишите пару примеров).
+
+  foo, foo1, fooBar, foo_bar
+
+3. Напишите функцию в функций. 
+
+  function makeList() {
+    let list = [];
+    let addToList = function(value){
+        list.push(value);
+    }
+    for(let i = 0; i < 10; i++){
+        addToList(i);
+    }
+    return list;
+  }
+
+4. if(5>3){
+       function getSum(){
+          console.log(“Hello”)
+       }
+    }
+    getSum()
+    Что покажет консоль?
+
+    Hello
+
+5. function showMessage(){
+        let message = “Hello World”
+        console.log(message)
+    }
+    console.log(message)
+    Что покажет консоль?
+
+    ошибку, переменная message объявляется внутри функции, let ограничивает видимость перемнной внутри функции
+
+6. let message;
+    function showMessage(){
+        message = “Hello World”
+    }
+    showMessage()
+    console.log(message)
+    Что покажет консоль?
+
+    Hello World, переменная message объявлена как глобальная 
+
+7. let message;
+   function showMessage(){
+       message = “Hello World”
+   }
+   console.log(message)
+   showMessage()
+   Что покажет консоль?
+
+   undefined, вызов функции showMessage и значение переменной message задается после вывода в консоль
+
+8. let message = “Hello One”
+    function showMessage(){
+        let message = “Hello Two”
+        console.log(message)
+    }
+    console.log(message)
+    showMessage()
+    Что покажет консоль?
+
+    Hello One
+    Hello Two
+
+9. let message = “Hello One”
+    function showMessage(){
+        let message = “Hello Two”
+        console.log(message)
+    }
+    console.log(message)
+    showMessage()
+    Что покажет консоль?
+
+    Hello One
+    Hello Two
+
+10. function calcSum(numOne,   
+      numTwo){
+      console.log(‘Переменная  
+      numOne: $ {numOne}’);
+      console.log(‘Переменная  
+      numTwo: $ {numTwo}’);
+      let numSum = numOne +  
+      numTwo;
+      console.log(‘Сумма: 
+      ${numSum}’);
+      }
+      calcSum(3, 6)
+      Что покажет консоль?
+
+      Переменная numOne: 3
+      Переменная numTwo: 6
+      Сумма: 9
+
+11. function calcSum(numOne,  
+     numTwo){
+     console.log(‘Переменная  
+     numOne: $ {numOne}’);
+     console.log(‘Переменная 
+     numTwo: $ {numTwo}’);
+     let numSum = numOne + 
+     numTwo;
+     console.log(‘Сумма: 
+     ${numSum}’);
+      }
+      calcSum()
+      Что покажет консоль?
+
+      Переменная numOne: undefined
+      Переменная numTwo: undefined
+      Сумма: NaN?
+
+12. function calcSum(numOne = 5,  
+      numTwo = 9){
+      console.log(‘Переменная 
+      numOne: $ {numOne}’);
+      console.log(‘Переменная 
+      numTwo: $ {numTwo}’);
+      let numSum = numOne + 
+      numTwo;
+      console.log(‘Сумма: 
+      ${numSum}’);
+      }
+      calcSum()
+      Что покажет консоль?
+
+      Переменная numOne: 5
+      Переменная numTwo: 9
+      Сумма: 14
+
+13. function calcSum(numOne = 5,  
+      numTwo = 9){
+      console.log(‘Переменная 
+      numOne: 
+      $ {numOne}’);
+      console.log(‘Переменная 
+      numTwo: 
+      $ {numTwo}’);
+      let numSum = numOne + 
+      numTwo;
+      console.log(‘Сумма: 
+      ${numSum}’);
+      }
+      calcSum(2, 1)
+      Что покажет консоль?
+
+      Переменная numOne: 2
+      Переменная numTwo: 1
+      Сумма: 3
+
+14. function calcSum(numOne, 
+      numTwo, more, less){
+      let numSum = numOne + 
+      numTwo;
+      if(numSum > 8){
+          more()
+      } else {
+          less()
+      }
+      }
+      function showMore(){
+         console.log(“London”)
+      }
+      function showLess(){
+         console.log(“New York”)
+      }
+      calcSum(5, 2, showMore, 
+      showLess)
+
+      New York
+        
+15. function calcSum(numOne, 
+      numTwo){
+      let numSum = numOne + 
+      numTwo;
+      return
+      numSum
+      }
+      let funcResult = calcSum(2,3)
+      console.log(‘Сумма: $
+      {funcResult}’);
+      Что покажет консоль?
+
+      Сумма: undefined //потому что return и numSum на разных строках и все что под return не будет вызвано
+        
+16. function calcSum(numOne, 
+      numTwo){
+      let numSum = numOne + 
+      numTwo;
+      return numSum
+      }
+      let funcResult = calcSum(5, 3)
+      console.log(‘Сумма: $
+      {funcResult}’);
+      Что покажет консоль?
+
+      Сумма: 8 //потому что return numSum на одной строке, следовательно из функции вернется сумма двух чисел
+
+17. Как объявляется Экспресс функция. 
+
+      let expression = function(){
+        console.log('Hello');
+      }
+
+18. Как объявляется Стрелочная функция (Arrow function)
+      let arrow = () => console.log('Hello');
+
+
+19. Что такое setTimeout, setInterval. Приведите примеры с ними. И что такое clearTimeout, clearIntetval (пару примеров с ними).
+
+      setTimeout - отложенный вызов куска кода
+      setInterval - повторяющийся вызов куска кода
+
+      clearTimeout - отмена вызова отложенного куска кода
+      clearInterval - остановка вызовка повторяющегося куска кода
+
+
+      let timeout = setTimeout(() => {
+        console.log('timeout');
+      }, 2000);
+      clearTimeout(timeout);
+
+      let count = 0;
+      let interval = setInterval(() => {
+        console.log(count++);
+        if(count > 10)
+          clearInterval(interval);
+      }, 500);
+
+20. Что такое Spread оператор? Приведите пару примеров с ним. Скопируйте массив или объект при помощи Spread оператора.
+
+      spread оператор позволяет расширить количество аргументов доступных для итерации (как то так я понял из записи зума)
+      
+      let arr1 = [1,2,3];
+      let arr2 = [4,5,6];
+
+      let maxNum = Math.max(...arr1, ...arr2);
+
+      let copyArr = [...arr2, ...arr1].sort();
+
+</body>
+</html>
