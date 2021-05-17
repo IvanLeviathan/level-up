@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  1. Приведите пример с Promise
+  let promise = new Promise(function(resolve, reject) {
+    setTimeout(() => resolve("answer"), 1000);
+  });
+  console.log(promise); //pending
+  setTimeout(()=>{
+      console.log(promise); //answer
+  }, 1500);
+
+  2. Что такое resolve и reject?
+  resolve - колбек, если промис завершился успешно
+  reject - колбек, если промис завершился с ошибкой
+
+  3. Что такое localStorage?
+
+  localStorage - объект, который хранит в себе записи вида "ключ: значение", отличается от куки тем что виден из любой вкладки браузера, тем временем как куки устанавливаются именно на определнный домен
+
+  4. Как записать в хранилище localStorage новый ключ со значением?
+
+  localStorage.setItem('key', 'valie');
+
+  5. Как посмотреть ключ со значением из localStorage?
+  localStorage.getItem('key');
+
+  6. Как удалить ключ со значением из localStorage?
+  localStorage.removeItem('key');
+
+  7. Как удалить все ключи в localStorage?
+  localStorage.clear();
+
+  8. Создайте 3 переменных с разными типами данных в TypeScript
+
+  let str: string = 'hello';
+  let num: number = 123;
+  let bool: boolean = true;
+
+  9. Создайте массив в TypeScript
+  let arr:number[] = [1,2,3];
+
+  10. Создайте переменную с помощью Tuple (TypeScript)
+
+  let arr: [string, number, boolean] = ['string', 123, true];
+
+  11. Создайте переменную с помощью Any (TypeScript)
+
+  let an:any = 123;
+  an = 'str';
+  an = true;
+
+  12. Создайте функцию с помощью TypeScript
+
+  function isBigger():boolean{
+    return 5 > 3 ? true : false;
+  }
+
+  13. Создайте свой тип данных с помощью TypeScript
+
+  type customType = string;
+  let str:customType = 'string';
+
+  14. Как создать Интерфейс в TypeScript
+
+  interface Person{
+    name:string;
+    age:number;
+    gender:string;
+    job:string;
+  }
+
+  let ivan: Person = {
+    name: "Ivan",
+    age: 25,
+    gender: 'male',
+    job: 'bitrix dev'
+  }
+
+  15. Что такое readonly и как сделать ключ необязательным в интерфейсе (TypeScript)?
+
+  readonly - позволяет только один раз задать значение, без права его изменения в будущем
+
+  interface Person{
+    name:string;
+    age:number;
+    readonly gender: string;
+    job?:string; //необязательный ключ
+  }
+
+</body>
+</html>
