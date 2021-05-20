@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  1.Что такое контекст? Приведите пример.
+
+  как правило контекст хранится в переменной this
+  контекст (this) - ссылка на объект, ИЗ которого вызывается код в данный момент.
+
+  function hello(){
+    console.log(this);
+  }
+  hello();
+
+  2.Что такое Arrow function? Приведите пример.
+
+  Новый вид функций из ES6. Имеет краткий синтаксис.
+
+  const arrow = () => {
+    console.log(123)
+  };
+
+  3.Что такое Лямбда функция? Приведите пример.
+
+  разновидность стрелочных функций, имеет запись в одну строку с возможностью неявного возврата
+
+  const arrow = (num1, num2) => num1 + num2;
+
+  4.Что делает метод startsWith, endsWith, includes, repeat?
+
+  startsWith - метод для строки, определяет начинается ли строка с заданных символов
+  endsWith - метод для строки, определяет кончается ли строка на заданных символов
+  includes - метод для массивов и строк. В массивах определяет наличие элемента, в строка наличие подстроки
+  repeat - возвращает новую строку, содержащую указанное при вызове количество повторений данной строки
+
+
+  5.Что делает метод trim, trimStart, trimEnd, padStart, padEnd?
+
+  trim - удаляет пробелы с начала и с конца строки
+  trimStart - удаляет пробелы с начала строки
+  trimEnd - удаляет пробелы с конца строки
+  padStart - дополняет строку с ее начала символами до заданной длины
+  padEnd - дополняет строку с ее конца символами до заданной длины
+
+  6.Что делает Object.assign? Приведите с ним один пример.
+
+  Object.assign - используется для копирования/клонирования/слияния элементов
+
+  let obj = {
+    text: 'Hello'
+  };
+  let objCopy = Object.assign({}, obj); //в objCopy теперь все свойства объекта переданные НЕ по ссылке
+
+  7.Создайте класс в JavaScript.
+
+  class MyClass {
+    text = "Hello"
+  }
+
+  8.Что такое конструктор в классе? 
+
+  метод который запускается при создании объекта класса
+
+  9.Передайте параметры в классы и покажите эти параметры в консоле.
+
+  class HelloWorld{
+    constructor(text, date){
+      this.text = text;
+      this.date = date;
+    }
+  }
+  let hello = new HelloWorld('Hello its me', new Date());
+  console.log(hello.text);
+  console.log(hello.date);
+
+  10.Что такое extends? Приведите пример.
+
+  используется для создания дочернего класса, другими словами наследует всю логику родительского класса
+
+  class Person{
+    constructor(name, age){
+      this.name = name;
+      this.age = age;
+    }
+  }
+
+  class Gender extends Person{
+    constructor(name, age, gender){
+      super(name,age);
+      this.gender = gender;
+    }
+  }
+
+  let person = new Gender('Ivan', 25, 'male');
+
+  11.Что такое fetch? Приведите несложный пример
+
+  fetch - метод для работы с запросами и ответами HTTP
+
+  fetch('https://jsonplaceholder.typicode.com/users/100')
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(e => console.log(e));
+
+</body>
+</html>
