@@ -6,7 +6,7 @@ export default function Notes() {
   const [notes, setNotes] = useState([]);
   useEffect(() => {
     setTimeout(() => {
-      fetch("https://jsonplaceholder.typicode.com/todos/?_limit=10")
+      fetch("https://jsonplaceholder.typicode.com/todos/?_limit=200")
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
