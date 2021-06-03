@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/text.css';
+import './styles.css'
 
 export default class Text extends React.Component{
   render(){
