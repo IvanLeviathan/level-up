@@ -2,6 +2,9 @@ import {React, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCheckTodo, actionCreateTodo, actionDelTodo } from '../../store/todos';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Deletebutton from '../Deletebutton';
+import Checkbox from '../Checkbox';
+import Button from '../Button';
 
 export const Profile = () => {
   const todos = useSelector((state) => state.task);
@@ -39,7 +42,7 @@ export const Profile = () => {
           <div className="input-group mb-3 mt-3">
             <input className="form-control" type="text" placeholder="Добавить задачу" value={change} onChange={(e) => handlerChangeInput(e)} />
             <div className="input-group-append">
-              <button onClick={handlerAddToDo} className={change.length ? "btn btn-info" : "btn btn-info disabled"} disabled={change.length ? '' : 'disabled'} type="button">Добавить</button>
+              <Button name="Добавить" clickHandle={handlerAddToDo} className={change.length ? "btn btn-info" : "btn btn-info disabled"} disabled={change.length ? '' : 'disabled'} />
             </div>
           </div>
             
@@ -55,15 +58,10 @@ export const Profile = () => {
                         {todo.title}
                       </div>
                       <div className="col-2">
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" checked={todo.checked ? 'checked': ''} value="checked" id={"checkbox"+todo.id} onChange={(e) => handlerCheckToDo(e, todo.id)} />
-                        <label className="form-check-label" htmlFor={"checkbox"+todo.id}>Выполнено</label>
-                      </div>
+                        <Checkbox checked={todo.checked} id={"checkbox"+todo.id} onchangeHandler={(e) => handlerCheckToDo(e, todo.id)} label="Выполнено"/>
                       </div>
                       <div className="col-1 text-center">
-                        <button className="btn btn-danger" title="Удалить задачу" onClick={() => handlerDelToDo(todo.id)}>
-                          <i className="bi bi-trash"></i>
-                        </button>
+                        <Deletebutton title="Удалить задачу" clickHandle={() => handlerDelToDo(todo.id)} />
                       </div>
                     </div>
                   </li>)

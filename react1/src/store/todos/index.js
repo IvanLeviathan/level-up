@@ -47,14 +47,16 @@ const taskReducer = (state = initState, action) => {
       return tasks;
     case actionType.DEL_TASK:
       tasks = {...state, task: state.task.filter((todo) => {
-        if(todo.id != action.payload)
+        if(todo.id !== action.payload)
           return todo;
+        else
+          return false;
       })};
       updateTasks(tasks.task);
       return tasks;
     case actionType.CHECK_TASK:
       tasks = {...state, task: state.task.map((todo) => {
-        if(todo.id == action.id)
+        if(todo.id === action.id)
           todo.checked = action.checked
         
         return todo;

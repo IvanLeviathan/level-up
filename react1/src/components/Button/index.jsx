@@ -1,7 +1,6 @@
-import './styles.css'
-const Button = ({name = 'Показать', hideName = 'Скрыть', handleButtonClick, showText = true}) => {
+const Button = (props) => {
   return (
-    <button onClick={handleButtonClick}>{showText ? hideName : name}</button>
+    <button onClick={props.clickHandle} className={props.className} disabled={props.disabled} type="button">{props.name}</button>
   )
 }
 export default Button;
