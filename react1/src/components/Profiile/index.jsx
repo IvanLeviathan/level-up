@@ -39,7 +39,7 @@ export const Profile = () => {
           <div className="input-group mb-3 mt-3">
             <input className="form-control" type="text" placeholder="Добавить задачу" value={change} onChange={(e) => handlerChangeInput(e)} />
             <div className="input-group-append">
-              <button onClick={handlerAddToDo} className="btn btn-outline-secondary" type="button">Добавить</button>
+              <button onClick={handlerAddToDo} className={change.length ? "btn btn-info" : "btn btn-info disabled"} disabled={change.length ? '' : 'disabled'} type="button">Добавить</button>
             </div>
           </div>
             
