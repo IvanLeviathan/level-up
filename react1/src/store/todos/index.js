@@ -5,7 +5,8 @@ const initState = {task: localStorage.getItem(storageName) ? JSON.parse(localSto
 
 const actionType = {
   ADD_TASK: 'ADD_TASK',
-  DEL_TASK: 'DEL_TASK'
+  DEL_TASK: 'DEL_TASK',
+  CHECK_TASK: 'CHECK_TASK'
 }
 
 export const actionCreateTodo = (payload) => {
@@ -21,13 +22,20 @@ export const actionDelTodo = (payload) => {
   }
 }
 
+export const actionCheckTodo = (checked, id) => {
+  return {
+    type: actionType.CHECK_TASK,
+    checked,
+    id
+  }
+}
 
 
 const updateTasks = (tasks) => {
   console.log(tasks);
   localStorage.setItem(storageName, JSON.stringify(tasks));
 }
-console.log(localStorage.getItem(storageName));
+
 
 const taskReducer = (state = initState, action) => {
   let tasks;
@@ -41,6 +49,15 @@ const taskReducer = (state = initState, action) => {
       tasks = {...state, task: state.task.filter((todo) => {
         if(todo.id != action.payload)
           return todo;
+      })};
+      updateTasks(tasks.task);
+      return tasks;
+    case actionType.CHECK_TASK:
+      tasks = {...state, task: state.task.map((todo) => {
+        if(todo.id == action.id)
+          todo.checked = action.checked
+        
+        return todo;
       })};
       updateTasks(tasks.task);
       return tasks;

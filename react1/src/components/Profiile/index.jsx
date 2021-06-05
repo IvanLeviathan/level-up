@@ -1,6 +1,6 @@
 import {React, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionCreateTodo, actionDelTodo } from '../../store/todos';
+import { actionCheckTodo, actionCreateTodo, actionDelTodo } from '../../store/todos';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 export const Profile = () => {
@@ -17,7 +17,8 @@ export const Profile = () => {
   const handlerAddToDo = () => {
     const data = {
       title: change,
-      id: Date.now()
+      id: Date.now(),
+      checked: false
     }
     dispatch(actionCreateTodo(data));
     setChange('');
@@ -25,6 +26,10 @@ export const Profile = () => {
 
   const handlerDelToDo = (id) => {
     dispatch(actionDelTodo(id));
+  }
+
+  const handlerCheckToDo = (event, id) => {
+    dispatch(actionCheckTodo(event.target.checked, id));
   }
 
   return (
@@ -44,10 +49,16 @@ export const Profile = () => {
               </div>
               <ul className="list-group list-group-flush">
                 {todos.task.length ? (
-                  todos.task.map((todo) => <li key={todo.id} className="list-group-item">
-                    <div className="row">
-                      <div className="col-11">
+                  todos.task.map((todo) => <li key={todo.id} className={todo.checked ? 'list-group-item bg-info text-light' : 'list-group-item'}>
+                    <div className="row align-items-center">
+                      <div className="col-9">
                         {todo.title}
+                      </div>
+                      <div className="col-2">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" checked={todo.checked ? 'checked': ''} value="checked" id={"checkbox"+todo.id} onChange={(e) => handlerCheckToDo(e, todo.id)} />
+                        <label className="form-check-label" htmlFor={"checkbox"+todo.id}>Выполнено</label>
+                      </div>
                       </div>
                       <div className="col-1 text-center">
                         <button className="btn btn-danger" title="Удалить задачу" onClick={() => handlerDelToDo(todo.id)}>
