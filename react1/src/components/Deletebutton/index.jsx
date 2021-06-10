@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Deletebutton = ({title = 'удалить', clickHandle}) => {
   return (
@@ -9,3 +10,8 @@ const Deletebutton = ({title = 'удалить', clickHandle}) => {
 }
 
 export default Deletebutton;
+
+Deletebutton.propTypes = {
+  title: PropTypes.string,
+  clickHandle: PropTypes.func
+};

@@ -3,8 +3,9 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Deletebutton from '../Deletebutton';
 import Checkbox from '../Checkbox';
 import Button from '../Button';
+import PropTypes from 'prop-types';
 
-export default function Task({inputValue, onChangeInput, onAdd, todos, onCheck, onDel}){
+export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCheck, onDel}){
   return (
     <div className="container">
       <div className="row">
@@ -44,4 +45,13 @@ export default function Task({inputValue, onChangeInput, onAdd, todos, onCheck, 
     </div>
   )
 }
+
+Task.propTypes = {
+  inputValue: PropTypes.string,
+  onChangeInput: PropTypes.func,
+  onAdd: PropTypes.func,
+  todos: PropTypes.object,
+  onCheck: PropTypes.func,
+  onDel: PropTypes.func
+};
 
