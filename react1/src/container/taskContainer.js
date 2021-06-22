@@ -1,13 +1,17 @@
-import {React, useEffect, useState} from "react";
+import {React, useState} from "react";
 import {useDispatch, useSelector } from 'react-redux';
-import { actionCheckTodo, actionCreateTodo, actionDelTodo, getTodosThunk } from '../store/todos';
+import { actionCheckTodo, actionCreateTodo, actionDeleteAllTasks, actionDelTodo } from '../store/todos';
 // import { connect } from "react-redux";
 import Task from '../components/Task';
+import { useRouteMatch } from "react-router-dom";
+import { actionDeleteAllCategories } from "../store/category";
 
 
 export default function TaskContainer(){
   const todos = useSelector((state) => state.task);
   const dispatch = useDispatch();
+  const match = useRouteMatch('/todos/:id');
+  let todoID = !!match && match.params.id ? +match.params.id : 0;
 
   const [change, setChange] = useState('');
 
@@ -33,13 +37,18 @@ export default function TaskContainer(){
     dispatch(actionCheckTodo(event.target.checked, id));
   }
 
-  const setTodosThunk = () => {
-    dispatch(getTodosThunk());
+  const handlerDelAllTasks = () => {
+    dispatch(actionDeleteAllTasks());
+    dispatch(actionDeleteAllCategories());
   }
 
-  useEffect(() => {
-    setTodosThunk();
-  }, []);
+  // const setTodosThunk = () => {
+  //   dispatch(getTodosThunk());
+  // }
+
+  // useEffect(() => {
+  //   setTodosThunk();
+  // }, []);
 
   return (
     <Task
@@ -49,6 +58,8 @@ export default function TaskContainer(){
       todos={todos}
       onCheck = {handlerCheckToDo}
       onDel = {handlerDelToDo}
+      todoID = {todoID}
+      onDelAllTasks = {handlerDelAllTasks}
     />
   )
 }

@@ -7,7 +7,7 @@ export const HomePage = () => {
   return <Switch>
     <Route path="/user" component={User} />
     <Route path="/settings" component={Settings} />
-    <Route path="/profile" component={Profile} />
+    <Route path="/todos" component={Profile} />
     <Redirect to="/" />
   </Switch>
 }

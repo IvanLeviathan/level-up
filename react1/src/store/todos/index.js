@@ -7,7 +7,8 @@ const actionType = {
   ADD_TASK: 'ADD_TASK',
   DEL_TASK: 'DEL_TASK',
   CHECK_TASK: 'CHECK_TASK',
-  SET_TODOS: 'SET_TODOS'
+  DELETE_ALL_TASKS: 'DELETE_ALL_TASKS'
+  // SET_TODOS: 'SET_TODOS'
 }
 
 export const actionCreateTodo = (payload) => {
@@ -31,6 +32,12 @@ export const actionCheckTodo = (checked, id) => {
   }
 }
 
+export const actionDeleteAllTasks = () => {
+  return {
+    type: actionType.DELETE_ALL_TASKS
+  }
+}
+
 
 const updateTasks = (tasks) => {
   console.log(tasks);
@@ -38,13 +45,13 @@ const updateTasks = (tasks) => {
 }
 
 
-const actionSetTodos = (payload) => {
-  console.log(payload);
-  return {
-    type: actionType.SET_TODOS,
-    payload
-  }
-}
+// const actionSetTodos = (payload) => {
+//   console.log(payload);
+//   return {
+//     type: actionType.SET_TODOS,
+//     payload
+//   }
+// }
 
 const taskReducer = (state = initState, action) => {
   let tasks;
@@ -72,21 +79,25 @@ const taskReducer = (state = initState, action) => {
       })};
       updateTasks(tasks.task);
       return tasks;
-    case actionType.SET_TODOS:
-      return {...state, task: [...state.task, ...action.payload]}
+    // case actionType.SET_TODOS:
+    //   return {...state, task: [...state.task, ...action.payload]}
+    case actionType.DELETE_ALL_TASKS:
+      tasks = {...state, task: []};
+      updateTasks(tasks.task);
+      return tasks;
     default:
       return state;
   }
 }
 
-export const getTodosThunk = () => (dispatch) => {
-  try{  
-    fetch('https://jsonplaceholder.typicode.com/todos/')
-      .then(response => response.json())
-      .then(json => dispatch(actionSetTodos(json)));
-  }catch(e){
-    console.log(e);
-  }
-} 
+// export const getTodosThunk = () => (dispatch) => {
+//   try{  
+//     fetch('https://jsonplaceholder.typicode.com/todos/')
+//       .then(response => response.json())
+//       .then(json => dispatch(actionSetTodos(json)));
+//   }catch(e){
+//     console.log(e);
+//   }
+// } 
 
 export default taskReducer;
