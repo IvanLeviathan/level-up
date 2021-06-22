@@ -6,7 +6,8 @@ const initState = {task: localStorage.getItem(storageName) ? JSON.parse(localSto
 const actionType = {
   ADD_TASK: 'ADD_TASK',
   DEL_TASK: 'DEL_TASK',
-  CHECK_TASK: 'CHECK_TASK'
+  CHECK_TASK: 'CHECK_TASK',
+  SET_TODOS: 'SET_TODOS'
 }
 
 export const actionCreateTodo = (payload) => {
@@ -37,6 +38,14 @@ const updateTasks = (tasks) => {
 }
 
 
+const actionSetTodos = (payload) => {
+  console.log(payload);
+  return {
+    type: actionType.SET_TODOS,
+    payload
+  }
+}
+
 const taskReducer = (state = initState, action) => {
   let tasks;
   switch (action.type){
@@ -63,9 +72,21 @@ const taskReducer = (state = initState, action) => {
       })};
       updateTasks(tasks.task);
       return tasks;
+    case actionType.SET_TODOS:
+      return {...state, task: [...state.task, ...action.payload]}
     default:
       return state;
   }
 }
+
+export const getTodosThunk = () => (dispatch) => {
+  try{  
+    fetch('https://jsonplaceholder.typicode.com/todos/')
+      .then(response => response.json())
+      .then(json => dispatch(actionSetTodos(json)));
+  }catch(e){
+    console.log(e);
+  }
+} 
 
 export default taskReducer;
