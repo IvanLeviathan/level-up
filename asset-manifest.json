@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/level-up/static/css/main.a0d468a5.chunk.css",
+    "main.js": "/level-up/static/js/main.706971df.chunk.js",
+    "main.js.map": "/level-up/static/js/main.706971df.chunk.js.map",
+    "runtime-main.js": "/level-up/static/js/runtime-main.e2585044.js",
+    "runtime-main.js.map": "/level-up/static/js/runtime-main.e2585044.js.map",
+    "static/css/2.560965f0.chunk.css": "/level-up/static/css/2.560965f0.chunk.css",
+    "static/js/2.b070e7cf.chunk.js": "/level-up/static/js/2.b070e7cf.chunk.js",
+    "static/js/2.b070e7cf.chunk.js.map": "/level-up/static/js/2.b070e7cf.chunk.js.map",
+    "static/js/3.c348557f.chunk.js": "/level-up/static/js/3.c348557f.chunk.js",
+    "static/js/3.c348557f.chunk.js.map": "/level-up/static/js/3.c348557f.chunk.js.map",
+    "index.html": "/level-up/index.html",
+    "static/css/2.560965f0.chunk.css.map": "/level-up/static/css/2.560965f0.chunk.css.map",
+    "static/css/main.a0d468a5.chunk.css.map": "/level-up/static/css/main.a0d468a5.chunk.css.map",
+    "static/js/2.b070e7cf.chunk.js.LICENSE.txt": "/level-up/static/js/2.b070e7cf.chunk.js.LICENSE.txt",
+    "static/media/bootstrap-icons.css": "/level-up/static/media/bootstrap-icons.dfd0ea12.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e2585044.js",
+    "static/css/2.560965f0.chunk.css",
+    "static/js/2.b070e7cf.chunk.js",
+    "static/css/main.a0d468a5.chunk.css",
+    "static/js/main.706971df.chunk.js"
+  ]
+}
