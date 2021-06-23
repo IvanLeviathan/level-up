@@ -1,20 +1,27 @@
-import React from "react";
+import {React, useRef} from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Deletebutton from '../Deletebutton';
 import Checkbox from '../Checkbox';
 import Button from '../Button';
 import PropTypes from 'prop-types';
+import Progressbar from "../ProgressBar";
 
-export default function Category({inputValue = '', onChangeInput, onAdd, categories, onCheck, onDel}){
+export default function Category({inputValue = '', onChangeInput, onAdd, categories, onCheck, onDel, taskPercents}){
+  const ref = useRef();
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div className="row">
         <div className="col-12">
           <div className="input-group mb-3 mt-3">
-            <input className="form-control" type="text" placeholder="Добавить категорию" value={inputValue} onChange={(e) => onChangeInput(e)} />
+            <input ref={ref} className="form-control" type="text" placeholder="Добавить категорию" value={inputValue} onChange={(e) => onChangeInput(e)} />
             <div className="input-group-append">
-              <Button name="Добавить" clickHandle={onAdd} className={inputValue.length ? "btn btn-info" : "btn btn-info disabled"} disabled={inputValue.length ? '' : 'disabled'} />
+              <Button name="Добавить" clickHandle={() => onAdd(ref)} className={inputValue.length ? "btn btn-info" : "btn btn-info disabled"} disabled={inputValue.length ? '' : 'disabled'} />
             </div>
+          </div>
+          <div className="mb-3">
+          <Progressbar
+            percent = {taskPercents}
+          />
           </div>
           <div className="card">
             <div className="card-header">
@@ -53,5 +60,6 @@ Category.propTypes = {
   onAdd: PropTypes.func,
   categories: PropTypes.object,
   onCheck: PropTypes.func,
-  onDel: PropTypes.func
+  onDel: PropTypes.func,
+  taskPercents: PropTypes.number
 };

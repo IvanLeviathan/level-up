@@ -40,7 +40,6 @@ export const actionDeleteAllTasks = () => {
 
 
 const updateTasks = (tasks) => {
-  console.log(tasks);
   localStorage.setItem(storageName, JSON.stringify(tasks));
 }
 
@@ -59,7 +58,6 @@ const taskReducer = (state = initState, action) => {
     case actionType.ADD_TASK:
       tasks = {...state, task: [...state.task, action.payload]};
       updateTasks(tasks.task);
-      console.log(state);
       return tasks;
     case actionType.DEL_TASK:
       tasks = {...state, task: state.task.filter((todo) => {

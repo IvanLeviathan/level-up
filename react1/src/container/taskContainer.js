@@ -1,17 +1,17 @@
-import {React, useState} from "react";
+import {React, useContext, useState} from "react";
 import {useDispatch, useSelector } from 'react-redux';
 import { actionCheckTodo, actionCreateTodo, actionDeleteAllTasks, actionDelTodo } from '../store/todos';
 // import { connect } from "react-redux";
 import Task from '../components/Task';
-import { useRouteMatch } from "react-router-dom";
 import { actionDeleteAllCategories } from "../store/category";
+import { Context } from "../contextContext";
 
 
 export default function TaskContainer(){
   const todos = useSelector((state) => state.task);
   const dispatch = useDispatch();
-  const match = useRouteMatch('/todos/:id');
-  let todoID = !!match && match.params.id ? +match.params.id : 0;
+  const context = useContext(Context);
+  const todoID = context.todoID;
 
   const [change, setChange] = useState('');
 
@@ -19,7 +19,7 @@ export default function TaskContainer(){
     setChange(e.target.value);
   }
 
-  const handlerAddToDo = () => {
+  const handlerAddToDo = (ref) => {
     const data = {
       title: change,
       id: Date.now(),
@@ -27,6 +27,7 @@ export default function TaskContainer(){
     }
     dispatch(actionCreateTodo(data));
     setChange('');
+    ref.current.focus();
   }
 
   const handlerDelToDo = (id) => {

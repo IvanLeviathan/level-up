@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useRef} from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Deletebutton from '../Deletebutton';
 import Checkbox from '../Checkbox';
@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCheck, onDel, todoID, onDelAllTasks}){
+
+  const ref = useRef();
+
   return (
     <div className="container">
       <div className="row">
@@ -17,9 +20,9 @@ export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCh
       <div className="row">
         <div className="col-12">
           <div className="input-group mb-3 mt-3">
-            <input className="form-control" type="text" placeholder="Добавить задачу" value={inputValue} onChange={(e) => onChangeInput(e)} />
+            <input ref={ref} className="form-control" type="text" placeholder="Добавить задачу" value={inputValue} onChange={(e) => onChangeInput(e)} />
             <div className="input-group-append">
-              <Button name="Добавить" clickHandle={onAdd} className={inputValue.length ? "btn btn-info" : "btn btn-info disabled"} disabled={inputValue.length ? '' : 'disabled'} />
+              <Button name="Добавить" clickHandle={() => onAdd(ref)} className={inputValue.length ? "btn btn-info" : "btn btn-info disabled"} disabled={inputValue.length ? '' : 'disabled'} />
             </div>
           </div>
           <div className="card">

@@ -1,7 +1,7 @@
-import React from 'react';
+import {React} from 'react';
 import { NavLink } from 'react-router-dom';
 import './styles.css'
-const Header = () => {
+const Header = () => {  
   return (
     <header className="bg-dark text-light">
       <div className="container">
