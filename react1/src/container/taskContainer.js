@@ -5,6 +5,7 @@ import { actionCheckTodo, actionCreateTodo, actionDeleteAllTasks, actionDelTodo 
 import Task from '../components/Task';
 import { actionDeleteAllCategories } from "../store/category";
 import { Context } from "../contextContext";
+import { actionShowModal } from "../store/modals";
 
 
 export default function TaskContainer(){
@@ -27,11 +28,12 @@ export default function TaskContainer(){
     }
     dispatch(actionCreateTodo(data));
     setChange('');
-    ref.current.focus();
+    // ref.current.focus();
   }
 
-  const handlerDelToDo = (id) => {
-    dispatch(actionDelTodo(id));
+  const handlerDelToDo = (id, title) => {
+    // dispatch(actionDelTodo(id));
+    dispatch(actionShowModal({name: 'ModalDelete', id: id, modalText: `Вы действительно хотите удалить <b>${title}</b>?`, deleteFunc: actionDelTodo}));
   }
 
   const handlerCheckToDo = (event, id) => {

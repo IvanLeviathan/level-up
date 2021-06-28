@@ -3,7 +3,8 @@ import {useDispatch, useSelector } from 'react-redux';
 import { actionCheckCategory, actionCreateCategory, actionDelCategory} from '../store/category';
 import Category from '../components/Category';
 import { Context } from "../contextContext";
-
+import { useLocation } from "react-router-dom";
+import { actionShowModal } from "../store/modals";
 
 export default function CategoryContainer(){
   const categories = useSelector((state) => state.category);
@@ -11,6 +12,10 @@ export default function CategoryContainer(){
   const todoID = context.todoID;
   const dispatch = useDispatch();
   const [change, setChange] = useState('');
+
+  const location = useLocation();
+  const getValueSearch = new URLSearchParams(location.search).get('search');
+
 
   const handlerChangeInput = (e) => {
     setChange(e.target.value);
@@ -25,11 +30,11 @@ export default function CategoryContainer(){
     }
     dispatch(actionCreateCategory(data));
     setChange('');
-    ref.current.focus();
+    // ref.current.focus();
   }
 
-  const handlerDelToDo = (id) => {
-    dispatch(actionDelCategory(id));
+  const handlerDelToDo = (id, title) => {
+    dispatch(actionShowModal({name: 'ModalDelete', id: id, modalText: `Вы действительно хотите удалить <b>${title}</b>?`, deleteFunc: actionDelCategory}));
   }
 
   const handlerCheckToDo = (event, id) => {
@@ -43,15 +48,18 @@ export default function CategoryContainer(){
     return !!percent ? percent : 0;
   }, [categories, todoID]);
 
-  const findCurrentCategories = (cats, todoID) => {
+  const findCurrentCategories = (cats, todoID, valueSearch) => {
+    if(valueSearch)
+      cats = cats.filter((item) => item.title.toLowerCase().includes(valueSearch.toLowerCase()));
+
     return cats.filter((item) => item.todoID === todoID)
   }
   
   const getCurrentCategories = useCallback(
     () => {
-      return findCurrentCategories(categories.category, todoID)
+      return findCurrentCategories(categories.category, todoID, getValueSearch)
     },
-    [categories, todoID]
+    [categories, todoID, getValueSearch]
   );
 
   return (

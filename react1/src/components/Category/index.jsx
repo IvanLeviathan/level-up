@@ -5,15 +5,22 @@ import Checkbox from '../Checkbox';
 import Button from '../Button';
 import PropTypes from 'prop-types';
 import Progressbar from "../ProgressBar";
+import Input from "../Input";
+import SearchCategory from "../SearchCategory";
 
 export default function Category({inputValue = '', onChangeInput, onAdd, categories, onCheck, onDel, taskPercents}){
   const ref = useRef();
+  // const ref = React.createRef();
   return (
     <div className="container mt-5">
       <div className="row">
         <div className="col-12">
           <div className="input-group mb-3 mt-3">
-            <input ref={ref} className="form-control" type="text" placeholder="Добавить категорию" value={inputValue} onChange={(e) => onChangeInput(e)} />
+            <Input
+              placeholder = "Добавить категорию"
+              value = {inputValue}
+              onChange = {onChangeInput}
+            />
             <div className="input-group-append">
               <Button name="Добавить" clickHandle={() => onAdd(ref)} className={inputValue.length ? "btn btn-info" : "btn btn-info disabled"} disabled={inputValue.length ? '' : 'disabled'} />
             </div>
@@ -22,10 +29,14 @@ export default function Category({inputValue = '', onChangeInput, onAdd, categor
           <Progressbar
             percent = {taskPercents}
           />
+
           </div>
           <div className="card">
             <div className="card-header">
               Категории
+              <div className="mt-3">
+                <SearchCategory/>
+              </div>
             </div>
             <ul className="list-group list-group-flush">
               {categories.category.length ? (
@@ -38,7 +49,7 @@ export default function Category({inputValue = '', onChangeInput, onAdd, categor
                         <Checkbox checked={category.checked} id={"checkbox"+category.id} onchangeHandler={(e) => onCheck(e, category.id)} label="Выполнено"/>
                       </div>
                       <div className="col-2 text-center">
-                        <Deletebutton title="Удалить категорию" clickHandle={() => onDel(category.id)} />
+                        <Deletebutton title="Удалить категорию" clickHandle={() => onDel(category.id, category.title)} />
                       </div>
                     </div>
                 </li>

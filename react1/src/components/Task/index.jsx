@@ -5,8 +5,9 @@ import Checkbox from '../Checkbox';
 import Button from '../Button';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import Input from "../Input";
 
-export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCheck, onDel, todoID, onDelAllTasks}){
+export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCheck, onDel, todoID, onDelAllTasks, actionModalDelete}){
 
   const ref = useRef();
 
@@ -20,7 +21,11 @@ export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCh
       <div className="row">
         <div className="col-12">
           <div className="input-group mb-3 mt-3">
-            <input ref={ref} className="form-control" type="text" placeholder="Добавить задачу" value={inputValue} onChange={(e) => onChangeInput(e)} />
+            <Input
+              placeholder = "Добавить задачу"
+              value = {inputValue}
+              onChange = {onChangeInput}
+            />
             <div className="input-group-append">
               <Button name="Добавить" clickHandle={() => onAdd(ref)} className={inputValue.length ? "btn btn-info" : "btn btn-info disabled"} disabled={inputValue.length ? '' : 'disabled'} />
             </div>
@@ -56,7 +61,7 @@ export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCh
                         <Checkbox checked={todo.checked} id={"checkbox"+todo.id} onchangeHandler={(e) => onCheck(e, todo.id)} label="Выполнено"/>
                       </div>
                       <div className="col-2 text-center">
-                        <Deletebutton title="Удалить задачу" clickHandle={() => onDel(todo.id)} />
+                        <Deletebutton title="Удалить задачу" clickHandle={() => onDel(todo.id, todo.title)} />
                       </div>
                     </div>
                   </li>

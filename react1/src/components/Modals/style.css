@@ -1,0 +1,14 @@
+.modal{
+  background-color: rgba(0,0,0,.5);
+}
+@keyframes fromtop {
+  from{
+    transform: translateY(-100%);
+  }
+  to{
+    transform: translateY(0);
+  }
+}
+.modal-dialog{
+  animation: fromtop .5s;
+}
