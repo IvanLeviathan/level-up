@@ -9,7 +9,6 @@ import SearchCategory from "../SearchCategory";
 
 export default function Category({inputValue = '', onChangeInput, onAdd, categories, onCheck, onDel, taskPercents, onEdit}){
   const ref = useRef();
-  // const ref = React.createRef();
   return (
     <div className="container mt-5">
       <div className="row">
@@ -19,6 +18,7 @@ export default function Category({inputValue = '', onChangeInput, onAdd, categor
               placeholder = "Добавить категорию"
               value = {inputValue}
               onChange = {onChangeInput}
+              ref={ref}
             />
             <div className="input-group-append">
               <Button name="Добавить" clickHandle={() => onAdd(ref)} className={inputValue.length ? "btn btn-info" : "btn btn-info disabled"} disabled={inputValue.length ? '' : 'disabled'} />

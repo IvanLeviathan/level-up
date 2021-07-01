@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import Input from "../Input";
 
 export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCheck, onDel, todoID, onDelAllTasks, actionModalDelete, onEdit}){
-
   const ref = useRef();
 
   return (
@@ -24,6 +23,7 @@ export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCh
               placeholder = "Добавить задачу"
               value = {inputValue}
               onChange = {onChangeInput}
+              ref={ref}
             />
             <div className="input-group-append">
               <Button name="Добавить" clickHandle={() => onAdd(ref)} className={inputValue.length ? "btn btn-info" : "btn btn-info disabled"} disabled={inputValue.length ? '' : 'disabled'} />

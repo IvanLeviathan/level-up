@@ -30,7 +30,7 @@ export default function CategoryContainer(){
     }
     dispatch(actionCreateCategory(data));
     setChange('');
-    // ref.current.focus();
+    ref.current.focus();
   }
 
   const handlerDelToDo = (id, title) => {

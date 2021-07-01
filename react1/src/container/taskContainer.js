@@ -28,7 +28,7 @@ export default function TaskContainer(){
     }
     dispatch(actionCreateTodo(data));
     setChange('');
-    // ref.current.focus();
+    ref.current.focus();
   }
 
   const handlerDelToDo = (id, title) => {
