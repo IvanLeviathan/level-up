@@ -1,6 +1,5 @@
 import {React, useRef} from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Deletebutton from '../Deletebutton';
 import Checkbox from '../Checkbox';
 import Button from '../Button';
 import PropTypes from 'prop-types';
@@ -8,7 +7,7 @@ import Progressbar from "../ProgressBar";
 import Input from "../Input";
 import SearchCategory from "../SearchCategory";
 
-export default function Category({inputValue = '', onChangeInput, onAdd, categories, onCheck, onDel, taskPercents}){
+export default function Category({inputValue = '', onChangeInput, onAdd, categories, onCheck, onDel, taskPercents, onEdit}){
   const ref = useRef();
   // const ref = React.createRef();
   return (
@@ -42,14 +41,23 @@ export default function Category({inputValue = '', onChangeInput, onAdd, categor
               {categories.category.length ? (
                 categories.category.map((category) => <li key={category.id} className={category.checked ? 'list-group-item bg-info text-light' : 'list-group-item'}>
                     <div className="row align-items-center">
-                      <div className="col-6">
+                      <div className="col-5">
                         {category.title}
                       </div>
                       <div className="col-4">
                         <Checkbox checked={category.checked} id={"checkbox"+category.id} onchangeHandler={(e) => onCheck(e, category.id)} label="Выполнено"/>
                       </div>
-                      <div className="col-2 text-center">
-                        <Deletebutton title="Удалить категорию" clickHandle={() => onDel(category.id, category.title)} />
+                      <div className="col-3 text-center d-flex justify-content-between">
+                        <Button
+                            name='<i class="bi bi-pencil"></i>'
+                            clickHandle={() => onEdit(category.id)}
+                            className={category.checked ? "btn btn-outline-light" :"btn btn-outline-info"}
+                        />
+                        <Button
+                          name='<i class="bi bi-trash"></i>'
+                          clickHandle={() => onDel(category.id, category.title)}
+                          className="btn btn-danger"
+                        />
                       </div>
                     </div>
                 </li>
@@ -72,5 +80,5 @@ Category.propTypes = {
   categories: PropTypes.object,
   onCheck: PropTypes.func,
   onDel: PropTypes.func,
-  taskPercents: PropTypes.number
+  onEdit: PropTypes.func
 };

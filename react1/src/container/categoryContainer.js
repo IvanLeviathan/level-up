@@ -37,6 +37,10 @@ export default function CategoryContainer(){
     dispatch(actionShowModal({name: 'ModalDelete', id: id, modalText: `Вы действительно хотите удалить <b>${title}</b>?`, deleteFunc: actionDelCategory}));
   }
 
+  const handlerEditCategory = (id) => {
+    dispatch(actionShowModal({name: 'ModalEditCategoryContainer', id: id}));
+  }
+
   const handlerCheckToDo = (event, id) => {
     dispatch(actionCheckCategory(event.target.checked, id));
   }
@@ -70,6 +74,7 @@ export default function CategoryContainer(){
       categories={{category:getCurrentCategories()}}
       onCheck = {handlerCheckToDo}
       onDel = {handlerDelToDo}
+      onEdit = {handlerEditCategory}
       taskPercents = {taskPercents}
     />
   )

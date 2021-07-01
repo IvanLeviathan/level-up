@@ -7,7 +7,8 @@ const actionType = {
   ADD_CAT: 'ADD_CAT',
   DELETE_CAT: 'DEL_CAT',
   CHECK_CAT: 'CHECK_CAT',
-  DELETE_ALL_CATEGORIES: 'DELETE_ALL_CATEGORIES'
+  DELETE_ALL_CATEGORIES: 'DELETE_ALL_CATEGORIES',
+  EDIT_CAT: 'EDIT_CAT'
   // SET_TODOS: 'SET_TODOS'
 }
 
@@ -37,6 +38,13 @@ export const actionDeleteAllCategories = () => {
     type: actionType.DELETE_ALL_CATEGORIES
   }
 };
+
+export const actionEditCategory = (payload) => {
+  return{
+    type: actionType.EDIT_CAT,
+    payload
+  }
+}
 
 const updateCategories = (cats) => {
   localStorage.setItem(storageName, JSON.stringify(cats));
@@ -71,6 +79,10 @@ const categoryReducer = (state = initState, action = false) => {
       return categories;
     case actionType.DELETE_ALL_CATEGORIES:
       categories = {...state, category: []};
+      updateCategories(categories.category);
+      return categories;
+    case actionType.EDIT_CAT:
+      categories = {...state, category: state.category.map((item) => item.id === action.payload.taskId ? {...item, title: action.payload.title, todoID: action.payload.todoId} : item)};
       updateCategories(categories.category);
       return categories;
     default:

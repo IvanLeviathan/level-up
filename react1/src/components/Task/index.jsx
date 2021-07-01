@@ -1,13 +1,12 @@
 import {React, useRef} from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Deletebutton from '../Deletebutton';
 import Checkbox from '../Checkbox';
 import Button from '../Button';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import Input from "../Input";
 
-export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCheck, onDel, todoID, onDelAllTasks, actionModalDelete}){
+export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCheck, onDel, todoID, onDelAllTasks, actionModalDelete, onEdit}){
 
   const ref = useRef();
 
@@ -39,20 +38,22 @@ export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCh
                 todos.task.map((todo) => {
                   let liClass = 'list-group-item';
                   let aClass = 'text-dark';
+                  let editButtonClass = 'btn btn-outline-info';
                   if(todo.checked){
                     liClass = 'list-group-item bg-info text-light';
                     aClass = 'text-white';
+                    editButtonClass = 'btn btn-outline-light';
                   }
 
                   if(todo.id === todoID){
-                    liClass = 'list-group-item bg-warning text-dark';
-                    aClass = 'text-dark';
+                    liClass = 'list-group-item bg-primary text-light';
+                    aClass = 'text-light';
+                    editButtonClass = 'btn btn-outline-light';
                   }
-                  
-                  
+
                   return (<li key={todo.id} className={liClass}>
                     <div className="row align-items-center">
-                      <div className="col-6">
+                      <div className="col-5">
                         <Link to={'/todos/' + todo.id} className={aClass}>
                           {todo.title}
                         </Link>
@@ -60,8 +61,17 @@ export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCh
                       <div className="col-4">
                         <Checkbox checked={todo.checked} id={"checkbox"+todo.id} onchangeHandler={(e) => onCheck(e, todo.id)} label="Выполнено"/>
                       </div>
-                      <div className="col-2 text-center">
-                        <Deletebutton title="Удалить задачу" clickHandle={() => onDel(todo.id, todo.title)} />
+                      <div className="col-3 text-center d-flex justify-content-between">
+                        <Button
+                          name='<i class="bi bi-pencil"></i>'
+                          clickHandle={() => onEdit(todo.id)}
+                          className={editButtonClass}
+                        />
+                        <Button
+                          name='<i class="bi bi-trash"></i>'
+                          clickHandle={() => onDel(todo.id, todo.title)}
+                          className="btn btn-danger"
+                        />
                       </div>
                     </div>
                   </li>
@@ -86,6 +96,7 @@ Task.propTypes = {
   onCheck: PropTypes.func,
   onDel: PropTypes.func,
   todoID: PropTypes.number,
-  onDelAllTasks: PropTypes.func
+  onDelAllTasks: PropTypes.func,
+  onEdit: PropTypes.func
 };
 

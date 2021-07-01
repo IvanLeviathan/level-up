@@ -7,7 +7,8 @@ const actionType = {
   ADD_TASK: 'ADD_TASK',
   DEL_TASK: 'DEL_TASK',
   CHECK_TASK: 'CHECK_TASK',
-  DELETE_ALL_TASKS: 'DELETE_ALL_TASKS'
+  DELETE_ALL_TASKS: 'DELETE_ALL_TASKS',
+  EDIT_TASK: 'EDIT_TASK'
   // SET_TODOS: 'SET_TODOS'
 }
 
@@ -38,6 +39,12 @@ export const actionDeleteAllTasks = () => {
   }
 }
 
+export const actionEditTask = (payload) => {
+  return {
+    type: actionType.EDIT_TASK,
+    payload
+  }
+}
 
 const updateTasks = (tasks) => {
   localStorage.setItem(storageName, JSON.stringify(tasks));
@@ -81,6 +88,10 @@ const taskReducer = (state = initState, action) => {
     //   return {...state, task: [...state.task, ...action.payload]}
     case actionType.DELETE_ALL_TASKS:
       tasks = {...state, task: []};
+      updateTasks(tasks.task);
+      return tasks;
+    case actionType.EDIT_TASK:
+      tasks = {...state, task: state.task.map((item) => item.id === action.payload.taskId ? {...item, title: action.payload.title} : item)};
       updateTasks(tasks.task);
       return tasks;
     default:

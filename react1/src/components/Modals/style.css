@@ -9,6 +9,9 @@
     transform: translateY(0);
   }
 }
+.modal-body{
+  word-break: break-all;
+}
 .modal-dialog{
   animation: fromtop .5s;
 }

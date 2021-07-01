@@ -36,6 +36,10 @@ export default function TaskContainer(){
     dispatch(actionShowModal({name: 'ModalDelete', id: id, modalText: `Вы действительно хотите удалить <b>${title}</b>?`, deleteFunc: actionDelTodo}));
   }
 
+  const handlerEditTodo = (id) => {
+    dispatch(actionShowModal({name: 'ModalEditTaskContainer', id: id}));
+  }
+
   const handlerCheckToDo = (event, id) => {
     dispatch(actionCheckTodo(event.target.checked, id));
   }
@@ -63,6 +67,7 @@ export default function TaskContainer(){
       onDel = {handlerDelToDo}
       todoID = {todoID}
       onDelAllTasks = {handlerDelAllTasks}
+      onEdit = {handlerEditTodo}
     />
   )
 }

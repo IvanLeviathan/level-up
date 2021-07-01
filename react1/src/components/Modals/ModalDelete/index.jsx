@@ -1,17 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { actionHideModal } from '../../../store/modals';
 import Button from '../../Button'
 import PropTypes from 'prop-types';
 
 export default function ModalDelete(props) {
   const dispatch = useDispatch();
   const handlerDelete = () => {
-    dispatch(actionHideModal());
+    props.handlerHideModal();
     dispatch(props.deleteFunc(props.id))
-  }
-  const handlerHideModal = () => {
-    dispatch(actionHideModal());
   }
   return (
     <div className="modal fade show" style={{opacity:1, display:"block"}} tabIndex="-1" role="dialog">
@@ -19,7 +15,7 @@ export default function ModalDelete(props) {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">{props.modalTitle ? props.modalTitle : 'Удаление'}</h5>
-            <button type="button" className="close" aria-label="Close" onClick={handlerHideModal}>
+            <button type="button" className="close" aria-label="Close" onClick={props.handlerHideModal}>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -35,7 +31,7 @@ export default function ModalDelete(props) {
           />
           <Button
             name="Закрыть"
-            clickHandle={handlerHideModal}
+            clickHandle={props.handlerHideModal}
             className="btn btn-secondary"
             disabled=''
           />
@@ -50,5 +46,6 @@ export default function ModalDelete(props) {
 ModalDelete.propTypes = {
   modalTitle: PropTypes.string,
   modalText: PropTypes.string,
-  deleteFunc: PropTypes.func
+  deleteFunc: PropTypes.func,
+  handlerHideModal: PropTypes.func
 }
