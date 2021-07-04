@@ -6,7 +6,7 @@ import { Context } from "../contextContext";
 import { useLocation } from "react-router-dom";
 import { actionShowModal } from "../store/modals";
 
-export default function CategoryContainer(){
+function CategoryContainer(){
   const categories = useSelector((state) => state.category);
   const context = useContext(Context);
   const todoID = context.todoID;
@@ -79,3 +79,4 @@ export default function CategoryContainer(){
     />
   )
 }
+export default CategoryContainer;

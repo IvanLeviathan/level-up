@@ -3,6 +3,8 @@ import Button from '../../Button'
 import PropTypes from 'prop-types';
 import Input from '../../Input';
 import './style.css';
+import Checkbox from '../../Checkbox';
+import Textarea from '../../Textarea';
 
 export default function ModalEditCategory(props) {
   return (
@@ -10,17 +12,27 @@ export default function ModalEditCategory(props) {
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">{props.modalTitle ? props.modalTitle : 'Редактирование'}</h5>
+            <h5 className="modal-title">{props.modalTitle ? props.modalTitle : `Редактирование категории "${props.value}"`}</h5>
             <button type="button" className="close" aria-label="Close" onClick={props.handlerHideModal}>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div className="modal-body" >
-            <Input
-              placeholder = 'Редактировать'
-              value={props.value}
-              onChange={props.handlerChangeInput}
-            />
+            <div className="form-group">
+              <label>Название категории</label>
+              <Input
+                placeholder = 'Редактировать'
+                value={props.value}
+                onChange={props.handlerChangeInput}
+              />
+            </div>
+            <div className="form-group">
+              <Checkbox checked={props.checkboxChecked} id={"checkboxmodal"+props.category.id} onchangeHandler={(e) => props.handlerOnCheck(e)} label="Выполнено"/>
+            </div>
+            <div className="form-group">
+              <label>Описание категории</label>
+              <Textarea value={props.description} onChangeHandler={(e) => props.handlerChangeDescription(e)} />
+            </div>
             <h5 className="mt-3">Сменить задачу</h5>
             <div className="list-group mt-2">
               {props.todos.task.map((item) => {

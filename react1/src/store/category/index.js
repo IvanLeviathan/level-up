@@ -82,7 +82,7 @@ const categoryReducer = (state = initState, action = false) => {
       updateCategories(categories.category);
       return categories;
     case actionType.EDIT_CAT:
-      categories = {...state, category: state.category.map((item) => item.id === action.payload.taskId ? {...item, title: action.payload.title, todoID: action.payload.todoId} : item)};
+      categories = {...state, category: state.category.map((item) => item.id === action.payload.taskId ? {...item, title: action.payload.title, todoID: action.payload.todoId, checked: action.payload.checked, description: action.payload.description} : item)};
       updateCategories(categories.category);
       return categories;
     default:

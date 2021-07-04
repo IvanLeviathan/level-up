@@ -41,7 +41,7 @@ export default function Category({inputValue = '', onChangeInput, onAdd, categor
               {categories.category.length ? (
                 categories.category.map((category) => <li key={category.id} className={category.checked ? 'list-group-item bg-info text-light' : 'list-group-item'}>
                     <div className="row align-items-center">
-                      <div className="col-5">
+                      <div className="col-5" title={category.description}>
                         {category.title}
                       </div>
                       <div className="col-4">
