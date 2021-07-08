@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/level-up/static/css/main.cf4208de.chunk.css",
-    "main.js": "/level-up/static/js/main.dd60ee26.chunk.js",
-    "main.js.map": "/level-up/static/js/main.dd60ee26.chunk.js.map",
-    "runtime-main.js": "/level-up/static/js/runtime-main.64b18038.js",
-    "runtime-main.js.map": "/level-up/static/js/runtime-main.64b18038.js.map",
+    "main.css": "/level-up/static/css/main.fd8a58bb.chunk.css",
+    "main.js": "/level-up/static/js/main.975ca9a7.chunk.js",
+    "main.js.map": "/level-up/static/js/main.975ca9a7.chunk.js.map",
+    "runtime-main.js": "/level-up/static/js/runtime-main.a64f50b9.js",
+    "runtime-main.js.map": "/level-up/static/js/runtime-main.a64f50b9.js.map",
     "static/css/2.560965f0.chunk.css": "/level-up/static/css/2.560965f0.chunk.css",
-    "static/js/2.0c48f9f9.chunk.js": "/level-up/static/js/2.0c48f9f9.chunk.js",
-    "static/js/2.0c48f9f9.chunk.js.map": "/level-up/static/js/2.0c48f9f9.chunk.js.map",
-    "static/js/3.83009e1b.chunk.js": "/level-up/static/js/3.83009e1b.chunk.js",
-    "static/js/3.83009e1b.chunk.js.map": "/level-up/static/js/3.83009e1b.chunk.js.map",
+    "static/js/2.47d49182.chunk.js": "/level-up/static/js/2.47d49182.chunk.js",
+    "static/js/2.47d49182.chunk.js.map": "/level-up/static/js/2.47d49182.chunk.js.map",
+    "static/js/3.ffa02bca.chunk.js": "/level-up/static/js/3.ffa02bca.chunk.js",
+    "static/js/3.ffa02bca.chunk.js.map": "/level-up/static/js/3.ffa02bca.chunk.js.map",
     "index.html": "/level-up/index.html",
     "static/css/2.560965f0.chunk.css.map": "/level-up/static/css/2.560965f0.chunk.css.map",
-    "static/css/main.cf4208de.chunk.css.map": "/level-up/static/css/main.cf4208de.chunk.css.map",
-    "static/js/2.0c48f9f9.chunk.js.LICENSE.txt": "/level-up/static/js/2.0c48f9f9.chunk.js.LICENSE.txt",
+    "static/css/main.fd8a58bb.chunk.css.map": "/level-up/static/css/main.fd8a58bb.chunk.css.map",
+    "static/js/2.47d49182.chunk.js.LICENSE.txt": "/level-up/static/js/2.47d49182.chunk.js.LICENSE.txt",
     "static/media/bootstrap-icons.css": "/level-up/static/media/bootstrap-icons.dfd0ea12.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.64b18038.js",
+    "static/js/runtime-main.a64f50b9.js",
     "static/css/2.560965f0.chunk.css",
-    "static/js/2.0c48f9f9.chunk.js",
-    "static/css/main.cf4208de.chunk.css",
-    "static/js/main.dd60ee26.chunk.js"
+    "static/js/2.47d49182.chunk.js",
+    "static/css/main.fd8a58bb.chunk.css",
+    "static/js/main.975ca9a7.chunk.js"
   ]
 }
