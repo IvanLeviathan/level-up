@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Input from '../../Input';
 
 export default function ModalEditTask(props) {
-  console.log(props.todoId);
   return (
     <div className="modal fade show" style={{opacity:1, display:"block"}} tabIndex="-1" role="dialog">
       <div className="modal-dialog" role="document">
