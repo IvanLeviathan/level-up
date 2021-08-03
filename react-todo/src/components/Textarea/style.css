@@ -1,0 +1,13 @@
+textarea{
+  padding: 8px 15px;
+  border: none;
+  resize: none;
+  height: 56px;
+  transition: all .25s ease;
+}
+textarea:focus {
+  outline: none;
+}
+textarea.bordered{
+  border: 1px solid #e2e2e2;
+}

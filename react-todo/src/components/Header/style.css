@@ -1,0 +1,18 @@
+header{
+  background-color: #a786c7;
+  color: #fff;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.search-wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+}
+.search-wrapper-inner{
+  display: flex;
+  align-items: center;
+}
+.search-wrapper-inner button{
+  margin-left: 10px;
+}

@@ -1,0 +1,23 @@
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+body{
+  font-family: cursive;
+}
+.add-todo{
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+}
+.add-todo img{
+  width: 20px;
+  height: 20px;
+}

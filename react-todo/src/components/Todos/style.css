@@ -1,0 +1,53 @@
+.todos__list{
+  max-width: 700px;
+  margin: 0 auto;
+}
+.todos__list__item{
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+  padding-top: 0;
+}
+
+.todos__list__item.no-todos{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.todos__list__item:last-child{
+  margin-bottom: 0;
+}
+
+.todos__list__item-title{
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: 1px solid rgb(26, 20, 20);
+  margin: 0 -10px;
+  padding: 0 15px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  transition: all .25s ease;
+  background-color: transparent;
+  padding-top: 20px;
+}
+.todos__list__item-title:hover{
+  cursor: pointer;
+  background-color: #e2e2e2;
+}
+.todos__list__item-description{
+  display: flex;
+  justify-content: space-between;
+}
+.todos__list__item-description-text{
+  padding-right: 30px;
+}
+.todos__buttons{
+  margin-bottom: 30px;
+}
+.todos__buttons button{
+  margin-right: 15px;
+}
+.todos__buttons button:last-child{
+  margin-right: 0;
+}

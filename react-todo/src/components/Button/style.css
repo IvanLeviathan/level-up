@@ -1,0 +1,36 @@
+button{
+  font-size: 16px;
+  padding: 5.5px 20px;
+  background-color: #06baea;
+  border: 1px solid #06baea;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+button:hover{
+  background-color: #0e8aab;
+  border-color: #0e8aab;
+}
+button.rounded{
+  border-radius: 50%;
+  padding: 10px 12px;
+}
+button.delete-button{
+  padding: 10px 12px;
+  border-radius: 5px;
+}
+button.delete-button img{
+  width: 20px;
+  height: 20px;
+}
+
+button.btn-danger{
+  background-color: red;
+  color: #fff;
+  border-color: red;
+}
+button.btn-danger:hover{
+  background-color: #b71313;
+  border-color: #b71313;
+}
