@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/level-up/static/css/main.855b15e7.chunk.css",
-    "main.js": "/level-up/static/js/main.9631a452.chunk.js",
-    "main.js.map": "/level-up/static/js/main.9631a452.chunk.js.map",
+    "main.js": "/level-up/static/js/main.f6852922.chunk.js",
+    "main.js.map": "/level-up/static/js/main.f6852922.chunk.js.map",
     "runtime-main.js": "/level-up/static/js/runtime-main.6c606a2e.js",
     "runtime-main.js.map": "/level-up/static/js/runtime-main.6c606a2e.js.map",
     "static/js/2.b60022fa.chunk.js": "/level-up/static/js/2.b60022fa.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.6c606a2e.js",
     "static/js/2.b60022fa.chunk.js",
     "static/css/main.855b15e7.chunk.css",
-    "static/js/main.9631a452.chunk.js"
+    "static/js/main.f6852922.chunk.js"
   ]
 }
