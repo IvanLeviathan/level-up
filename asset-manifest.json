@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/level-up/react-todo/static/css/main.855b15e7.chunk.css",
-    "main.js": "/level-up/react-todo/static/js/main.9631a452.chunk.js",
-    "main.js.map": "/level-up/react-todo/static/js/main.9631a452.chunk.js.map",
-    "runtime-main.js": "/level-up/react-todo/static/js/runtime-main.2f902ee4.js",
-    "runtime-main.js.map": "/level-up/react-todo/static/js/runtime-main.2f902ee4.js.map",
-    "static/js/2.b60022fa.chunk.js": "/level-up/react-todo/static/js/2.b60022fa.chunk.js",
-    "static/js/2.b60022fa.chunk.js.map": "/level-up/react-todo/static/js/2.b60022fa.chunk.js.map",
-    "static/js/3.b40b1030.chunk.js": "/level-up/react-todo/static/js/3.b40b1030.chunk.js",
-    "static/js/3.b40b1030.chunk.js.map": "/level-up/react-todo/static/js/3.b40b1030.chunk.js.map",
-    "index.html": "/level-up/react-todo/index.html",
-    "static/css/main.855b15e7.chunk.css.map": "/level-up/react-todo/static/css/main.855b15e7.chunk.css.map",
-    "static/js/2.b60022fa.chunk.js.LICENSE.txt": "/level-up/react-todo/static/js/2.b60022fa.chunk.js.LICENSE.txt",
-    "static/media/delete.8618c2a5.svg": "/level-up/react-todo/static/media/delete.8618c2a5.svg",
-    "static/media/plus.ba025ac3.svg": "/level-up/react-todo/static/media/plus.ba025ac3.svg"
+    "main.css": "/level-up/static/css/main.855b15e7.chunk.css",
+    "main.js": "/level-up/static/js/main.9631a452.chunk.js",
+    "main.js.map": "/level-up/static/js/main.9631a452.chunk.js.map",
+    "runtime-main.js": "/level-up/static/js/runtime-main.6c606a2e.js",
+    "runtime-main.js.map": "/level-up/static/js/runtime-main.6c606a2e.js.map",
+    "static/js/2.b60022fa.chunk.js": "/level-up/static/js/2.b60022fa.chunk.js",
+    "static/js/2.b60022fa.chunk.js.map": "/level-up/static/js/2.b60022fa.chunk.js.map",
+    "static/js/3.b40b1030.chunk.js": "/level-up/static/js/3.b40b1030.chunk.js",
+    "static/js/3.b40b1030.chunk.js.map": "/level-up/static/js/3.b40b1030.chunk.js.map",
+    "index.html": "/level-up/index.html",
+    "static/css/main.855b15e7.chunk.css.map": "/level-up/static/css/main.855b15e7.chunk.css.map",
+    "static/js/2.b60022fa.chunk.js.LICENSE.txt": "/level-up/static/js/2.b60022fa.chunk.js.LICENSE.txt",
+    "static/media/delete.8618c2a5.svg": "/level-up/static/media/delete.8618c2a5.svg",
+    "static/media/plus.ba025ac3.svg": "/level-up/static/media/plus.ba025ac3.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2f902ee4.js",
+    "static/js/runtime-main.6c606a2e.js",
     "static/js/2.b60022fa.chunk.js",
     "static/css/main.855b15e7.chunk.css",
     "static/js/main.9631a452.chunk.js"
