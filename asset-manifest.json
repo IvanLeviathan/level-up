@@ -1,26 +1,24 @@
 {
   "files": {
-    "main.css": "/level-up/static/css/main.fd8a58bb.chunk.css",
-    "main.js": "/level-up/static/js/main.975ca9a7.chunk.js",
-    "main.js.map": "/level-up/static/js/main.975ca9a7.chunk.js.map",
-    "runtime-main.js": "/level-up/static/js/runtime-main.a64f50b9.js",
-    "runtime-main.js.map": "/level-up/static/js/runtime-main.a64f50b9.js.map",
-    "static/css/2.560965f0.chunk.css": "/level-up/static/css/2.560965f0.chunk.css",
-    "static/js/2.47d49182.chunk.js": "/level-up/static/js/2.47d49182.chunk.js",
-    "static/js/2.47d49182.chunk.js.map": "/level-up/static/js/2.47d49182.chunk.js.map",
-    "static/js/3.ffa02bca.chunk.js": "/level-up/static/js/3.ffa02bca.chunk.js",
-    "static/js/3.ffa02bca.chunk.js.map": "/level-up/static/js/3.ffa02bca.chunk.js.map",
-    "index.html": "/level-up/index.html",
-    "static/css/2.560965f0.chunk.css.map": "/level-up/static/css/2.560965f0.chunk.css.map",
-    "static/css/main.fd8a58bb.chunk.css.map": "/level-up/static/css/main.fd8a58bb.chunk.css.map",
-    "static/js/2.47d49182.chunk.js.LICENSE.txt": "/level-up/static/js/2.47d49182.chunk.js.LICENSE.txt",
-    "static/media/bootstrap-icons.css": "/level-up/static/media/bootstrap-icons.dfd0ea12.woff2"
+    "main.css": "/level-up/react-todo/static/css/main.855b15e7.chunk.css",
+    "main.js": "/level-up/react-todo/static/js/main.9631a452.chunk.js",
+    "main.js.map": "/level-up/react-todo/static/js/main.9631a452.chunk.js.map",
+    "runtime-main.js": "/level-up/react-todo/static/js/runtime-main.2f902ee4.js",
+    "runtime-main.js.map": "/level-up/react-todo/static/js/runtime-main.2f902ee4.js.map",
+    "static/js/2.b60022fa.chunk.js": "/level-up/react-todo/static/js/2.b60022fa.chunk.js",
+    "static/js/2.b60022fa.chunk.js.map": "/level-up/react-todo/static/js/2.b60022fa.chunk.js.map",
+    "static/js/3.b40b1030.chunk.js": "/level-up/react-todo/static/js/3.b40b1030.chunk.js",
+    "static/js/3.b40b1030.chunk.js.map": "/level-up/react-todo/static/js/3.b40b1030.chunk.js.map",
+    "index.html": "/level-up/react-todo/index.html",
+    "static/css/main.855b15e7.chunk.css.map": "/level-up/react-todo/static/css/main.855b15e7.chunk.css.map",
+    "static/js/2.b60022fa.chunk.js.LICENSE.txt": "/level-up/react-todo/static/js/2.b60022fa.chunk.js.LICENSE.txt",
+    "static/media/delete.8618c2a5.svg": "/level-up/react-todo/static/media/delete.8618c2a5.svg",
+    "static/media/plus.ba025ac3.svg": "/level-up/react-todo/static/media/plus.ba025ac3.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a64f50b9.js",
-    "static/css/2.560965f0.chunk.css",
-    "static/js/2.47d49182.chunk.js",
-    "static/css/main.fd8a58bb.chunk.css",
-    "static/js/main.975ca9a7.chunk.js"
+    "static/js/runtime-main.2f902ee4.js",
+    "static/js/2.b60022fa.chunk.js",
+    "static/css/main.855b15e7.chunk.css",
+    "static/js/main.9631a452.chunk.js"
   ]
 }
