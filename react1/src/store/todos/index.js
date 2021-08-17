@@ -107,6 +107,6 @@ const taskReducer = (state = initState, action) => {
 //   }catch(e){
 //     console.log(e);
 //   }
-// } 
+// }
 
 export default taskReducer;
