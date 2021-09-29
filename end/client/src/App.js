@@ -11,6 +11,7 @@ function App() {
   const { user } = useSelector((state) => state.authReducer);
   const { token, login, logout, userId } = useAuth();
 
+  
   useEffect(() => {
     user && login(user.token, user.userId);
    }, [user]);
