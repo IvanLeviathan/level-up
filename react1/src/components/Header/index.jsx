@@ -7,9 +7,9 @@ const Header = () => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <p>ToDo App alpha alpha version</p>
+            <p>Simple ToDo App</p>
           </div>
-          <div className="col-12">
+          {/* <div className="col-12">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
               <div className="navbar-nav">
                 <NavLink className="nav-item nav-link" activeClassName="active" to="/user">User</NavLink>
@@ -17,7 +17,7 @@ const Header = () => {
                 <NavLink className="nav-item nav-link" activeClassName="active" to="/todos">Todos</NavLink>
               </div>
             </nav>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>

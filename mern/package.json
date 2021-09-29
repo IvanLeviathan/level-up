@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
     "react",
@@ -21,7 +23,11 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
-    "mongoose": "^5.13.7"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.7",
+    "reduce-reducers": "^1.0.4",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "concurrently": "^6.2.1",

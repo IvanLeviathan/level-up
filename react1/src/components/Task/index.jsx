@@ -54,7 +54,7 @@ export default function Task({inputValue = '', onChangeInput, onAdd, todos, onCh
                   return (<li key={todo.id} className={liClass}>
                     <div className="row align-items-center">
                       <div className="col-5">
-                        <Link to={'/todos/' + todo.id} className={aClass}>
+                        <Link to={'/' + todo.id} className={aClass}>
                           {todo.title}
                         </Link>
                       </div>

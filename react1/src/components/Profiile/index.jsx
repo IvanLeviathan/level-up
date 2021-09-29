@@ -5,7 +5,7 @@ import { useRouteMatch } from 'react-router-dom';
 import {Context} from '../../contextContext/index';
 
 export const Profile = () => {
-  const match = useRouteMatch('/todos/:id');
+  const match = useRouteMatch('/:id');
   const todoID = !!match && match.params.id ? +match.params.id : 0;
   return (
     <Context.Provider value={{

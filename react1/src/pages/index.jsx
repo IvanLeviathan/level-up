@@ -5,9 +5,7 @@ import { User } from "../components/User";
 
 export const HomePage = () => {
   return <Switch>
-    <Route path="/user" component={User} />
-    <Route path="/settings" component={Settings} />
-    <Route path="/todos" component={Profile} />
+    <Route path="/" component={Profile} />
     <Redirect to="/" />
   </Switch>
 }
