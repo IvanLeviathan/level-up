@@ -11,7 +11,6 @@ export const rootReducers = combineReducers({
     authReducer,
     modalsReducer,
     alertsReducer
-    // linkReducer,
     // todoReducer
 });
 

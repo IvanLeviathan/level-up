@@ -3,7 +3,6 @@ import Registration from "../component";
 import validate from "../../../utils/validations/index";
 import { authRegistration } from "../../../store/auth";
 import { useDispatch, useSelector } from 'react-redux';
-import { actionAddAlert } from "../../../store/alerts";
 import { addAlert } from "../../../utils/alerts";
 import { useHistory } from "react-router";
 import { auth } from "../../../mock-routes";

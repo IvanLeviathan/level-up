@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useAuth } from './hooks/auth.hook';
 import { useEffect } from 'react';
 import { AuthContext } from './context/AuthContext';
+import ModalsContainer from './components/Modals/container';
 
 function App() {
   const { user } = useSelector((state) => state.authReducer);
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <AuthContext.Provider value={{ token, login, logout, userId }}>
         {routes}
+        <ModalsContainer/>
         <AlertsContainer/>
       </AuthContext.Provider>
     </div>

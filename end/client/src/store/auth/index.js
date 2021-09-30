@@ -8,7 +8,8 @@ export default reducerReducers({
     user: null,
     isLoading: false,
     message: null,
-    success: false
+    success: false,
+    userInfo: null
 }, 
 commonReducer, 
 loginReducer )

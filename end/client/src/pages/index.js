@@ -1,25 +1,22 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 import HeaderContainer from '../components/Header/container';
+import TodoListContainer from '../components/TodoList/container';
 import { auth, common } from '../mock-routes/index';
 import LoginContainer from '../modules/login/container';
 import RegistrationContainer from '../modules/registration/container';
 
 
 export const useRoutes = (isAuthenticated) => {
-  console.log(isAuthenticated);
   if (isAuthenticated) {
     return <>
       <HeaderContainer/>
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
-          <div className="col-3 col-lg-2 bg-light sidebar">
-            sidabar
-          </div>
-          <div className="col-9 col-lg-10 pt-3 px-4 bg-light">
+          <div className="col-12 py-3">
             <Switch>
               <Route path={common.todo()} exact>
-                'Todo'
+                <TodoListContainer/>
               </Route>
               <Route path={common.profile()} exact>
                 'Profile'

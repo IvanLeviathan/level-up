@@ -1,15 +1,32 @@
-import React from 'react'
+import React from 'react';
+import './style.scss';
+import { Button } from 'react-bootstrap'
 
-export default function Header() {
-  return <>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"/>
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
-        </li>
-      </ul>
-    </nav>
-    </>
+export default function Header(props) {
+  const {userInfo, logout} = props;
+  return (
+    <div className="bg-dark">
+      <div className="container">
+        <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap">
+          <div className="row w-100">
+            <div className="col-12 col-lg-3">
+              {!!userInfo && (
+                <span className="navbar-brand col-sm-3 col-md-2 mr-0">Привет, {userInfo.user.name} {userInfo.user.surname}</span>
+              )}
+            </div>
+            <div className="col-12 col-lg-6">
+              <input className="form-control form-control-dark w-100" type="text" placeholder="Поиск" aria-label="Search"/>
+            </div>
+            <div className="col-12 col-lg-3 text-end">
+              <ul className="navbar-nav px-3">
+                <li className="nav-item text-nowrap">
+                  <Button variant="danger" onClick={logout}>Выйти</Button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  )
 }

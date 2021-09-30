@@ -1,0 +1,10 @@
+.add-todo{
+  position: fixed;
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+  @media(max-width: 991px){
+    bottom: 1rem;
+    right: 1rem;
+  }
+}

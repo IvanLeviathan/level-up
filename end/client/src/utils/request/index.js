@@ -1,5 +1,3 @@
-import RequestError from "./error";
-
 export default async function request(url, method = "GET", body = null, headers = {}) {
     if (body) {
         body = JSON.stringify(body);

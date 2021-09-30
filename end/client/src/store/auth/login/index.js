@@ -1,22 +1,21 @@
 import request from "../../../utils/request"
 import { handlerErrorAuth, handlerSuccessLoadingAuth, startLoadingAuth } from "../common";
 
-const localStorageName = 'end-user';
 
 const actionTypes = {
     SET_AUTH_USER: 'SET_AUTH_USER',
     CLEAR_AUTH_USER: 'CLEAR_AUTH_USER',
+    SET_USER_INFO: 'SET_USER_INFO'
 };
 
-const setLocalStorageUser = (payload) => {
-    localStorage.setItem(localStorageName, JSON.stringify(payload));
-}
-
 const setUser = (payload) => {
-    // setLocalStorageUser(payload);
     return { type: actionTypes.SET_AUTH_USER, payload }
 };
 export const clearUser = () => ({ type: actionTypes.CLEAR_AUTH_USER });
+
+const setUserInfo = (payload) => {
+    return {type: actionTypes.SET_USER_INFO, payload}
+}
 
 export const authLogin = (payload) => async (dispatch) => {
     dispatch(startLoadingAuth());
@@ -30,12 +29,25 @@ export const authLogin = (payload) => async (dispatch) => {
         dispatch(handlerErrorAuth(response));
 }
 
+export const authGetUserInfo = (userId) => async (dispatch) => {
+    dispatch(startLoadingAuth());
+    const response = await request('/api/auth/getuser', 'POST', {userId});
+    if(response.success){
+        dispatch(handlerSuccessLoadingAuth(response));
+        delete response.success;
+        dispatch(setUserInfo(response));
+    }else
+        dispatch(handlerErrorAuth(response));
+}
+
 export default function reducer(state, { type, payload }){
     switch (type) {
         case actionTypes.SET_AUTH_USER:
             return {...state, user: payload }
         case actionTypes.CLEAR_AUTH_USER:
             return {...state, user: null, error: null, success: false }
+        case actionTypes.SET_USER_INFO:
+            return {...state, userInfo: payload}
         default:
             return state;
     }

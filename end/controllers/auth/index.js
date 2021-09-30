@@ -51,4 +51,16 @@ try {
 }
 }
 
-module.exports = { registration, login }
+async function getUser(req, res) {
+    const userId = req.body.userId;
+    if(!userId)
+        return;
+
+    const user = await User.findOne({ userId });
+    if (!user) {
+        return res.status(400).json({ message: 'Пользователь не найден'})
+    };
+    res.json({ user });
+}
+
+module.exports = { registration, login, getUser }

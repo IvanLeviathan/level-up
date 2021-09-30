@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { registration, login } = require('../../controllers/auth/index');
+const { registration, login, getUser } = require('../../controllers/auth/index');
 
 const router = Router();
 
@@ -13,5 +13,7 @@ router.post('/login', [
     check('email', 'Введите корректный email').normalizeEmail().isEmail(),
     check('password', 'Введите пароль').exists(),
 ], async (req, res) => login (req, res));
+
+router.post('/getuser', async (req, res) => getUser(req, res));
 
 module.exports = router;

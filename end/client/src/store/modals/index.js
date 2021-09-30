@@ -18,10 +18,10 @@ export const actionHideModal = () => {
   }
 }
 
-const reducer = (state = initState, action) => {
-  switch(action.type){
+const reducer = (state = initState, {type, payload}) => {
+  switch(type){
     case actionType.SHOW_MODAL:
-      return [...state, action.payload]
+      return [...state, payload]
     case actionType.HIDE_MODAL:
       state.splice(-1, 1);
       return [...state];
