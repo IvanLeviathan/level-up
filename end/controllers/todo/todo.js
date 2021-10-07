@@ -2,13 +2,13 @@ const Todo = require('../../models/todo/index');
 
 async function createTodo(req, res) {
     try {
-        const { title } = req.body;
+        const { title, desc } = req.body;
 
-        const todo = new Todo({ title, owner: req.user.userId });
+        const todo = new Todo({ title, owner: req.user.userId, desc});
 
         await todo.save();
 
-        res.status(201).json({ todo });
+        res.status(201).json({ message: 'Задача успешно добавлена' });
 
     } catch (error) {
         res.status(500).json({ message: 'При попытке сохранить задачу что-то пошло не так' })
@@ -28,27 +28,41 @@ async function getTodos (req, res) {
 
 async function updateTodo (req, res) {
     try {
-        const { todoId } = req.body;
+        const { todoId, title, desc } = req.body;
         const todo = await Todo.findOne({ _id: todoId, owner: req.user.userId });
 
-        todo.completed = !todo.completed;
+        todo.title = title;
+        todo.desc = desc;
 
         await todo.save();
 
         res.json({ message: 'Задача успешно обновлена' });
 
     } catch (error) {
+        console.log(error);
         res.status(500).json({ message: 'Не удалось обновить задачу' })
+    }
+};
+
+async function getTodo (req, res) {
+    try {
+        const { todoId } = req.body;
+
+        const todo = await Todo.findOne({ _id: todoId, owner: req.user.userId });
+        res.json(todo);
+
+    } catch (error) {
+        res.status(500).json({ message: 'Не удалось получить задачу' })
     }
 };
 
 
 async function deleteTodo(req, res) {
     try {
-        const { id } = req.body;
-        const todos = await Todo.findByIdAndDelete({ _id: id, owner: req.user.userId });
+        const { todoId } = req.body;
+        const todos = await Todo.findByIdAndDelete({ _id: todoId, owner: req.user.userId });
 
-        res.status(201).json(todos);
+        res.status(201).json({ message: 'Задача успешно удалена' });
     } catch (error) {
         res.status(500).json({ message: 'Не удалось удалить задачу' })
     }
@@ -56,4 +70,4 @@ async function deleteTodo(req, res) {
 
 
 
-module.exports = { createTodo, getTodos, updateTodo, deleteTodo }
+module.exports = { createTodo, getTodos, updateTodo, deleteTodo, getTodo }

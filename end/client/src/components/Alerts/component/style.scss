@@ -1,11 +1,11 @@
 .alerts{
   position: fixed;
-  z-index: 50;
+  z-index: 1056;
   max-width: 500px;
   width: 100%;
-  left: 50%;
+  left: 5%;
   top: 5%;
-  transform: translateX(-50%);
+  transform: translateX(-5%);
 }
 @keyframes slideDownAlert{
   from{

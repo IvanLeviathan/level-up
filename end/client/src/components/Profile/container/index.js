@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Registration from "../component";
-import validate from "../../../utils/validations/index";
-import { authRegistration } from "../../../store/auth";
+import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addAlert } from "../../../utils/alerts";
+import { AuthContext } from '../../../context/AuthContext';
+import { updateUser } from '../../../store/auth/login';
+import { addAlert } from '../../../utils/alerts';
+import validate from '../../../utils/validations';
+import Profile from '../component'
 
-export default function RegistrationContainer(props){
+export default function ProfileContainer() {
   const [name, changeName] = useState('');
   const [surname, changeSurName] = useState('');
   const [age, changeAge] = useState('');
@@ -13,10 +14,10 @@ export default function RegistrationContainer(props){
   const [phone, changePhone] = useState('');
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
-  const [confirmPassword, changeConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
   const dispatch = useDispatch();
-  const { isLoading, success, message } = useSelector((state) => state.authReducer);
+  const { isLoading, success, message, userInfo } = useSelector((state) => state.authReducer);
+  const {token} = useContext(AuthContext);
 
   let formItemsDefault = [
     {
@@ -80,21 +81,12 @@ export default function RegistrationContainer(props){
     },
     {
       id: "password",
-      label: "Пароль",
+      label: "Изменить пароль",
       placeholder: "Введите пароль",
       type: "password",
       value: password,
       onChange: changePassword,
-      required: true
-    },
-    {
-      id: "confirmPassword",
-      label: "Подтверждение пароля",
-      placeholder: "Повторите пароль",
-      type: "password",
-      value: confirmPassword,
-      onChange: changeConfirmPassword,
-      required: true
+      required: false
     }
   ]
 
@@ -102,16 +94,13 @@ export default function RegistrationContainer(props){
     if(JSON.stringify(errors) !== JSON.stringify(newErrors))
       setErrors(newErrors);
   }
-
   useEffect(() => {
     setValidateErrors(validate(formItemsDefault));
   })
 
-
   useEffect(() => {
     if(isLoading)
       return;
-
 
     addAlert(
       dispatch,
@@ -119,16 +108,25 @@ export default function RegistrationContainer(props){
       success ? 'success' : 'danger'
     );
   }, [isLoading])
+  useEffect(() => {
+    const user = userInfo.user;
+    changeName(user.name||'');
+    changeSurName(user.surname||'');
+    changeAge(user.age||'');
+    changeSex(user.sex||'');
+    changePhone(user.phone||'');
+    changeEmail(user.email||'');
+  }, [])
 
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const formData = {name, surname, age, sex, phone, email, password, confirmPassword};
-    dispatch(authRegistration(formData));
+    const formData = {name, surname, age, sex, phone, email, password, id: userInfo.user._id};
+    dispatch(updateUser(formData, token));
   }
 
   return (
-    <Registration
+    <Profile
       errors = {errors}
       items = {formItemsDefault}
       onSubmit={onSubmit}

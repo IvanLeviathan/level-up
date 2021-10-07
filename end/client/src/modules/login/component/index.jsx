@@ -1,4 +1,4 @@
-import { Form, Button, Card } from 'react-bootstrap'
+import { Form, Button, Card, Spinner } from 'react-bootstrap'
 import React from 'react'
 import './style.scss';
 import { Link } from 'react-router-dom';
@@ -38,7 +38,7 @@ export default function Registration(props) {
               </Form.Group>
             )
           })}
-          <Button className="d-block w-100" variant="primary" type="submit" disabled={Object.keys(errors).length || isLoading}>{isLoading ? "Загрузка..." : "Войти"}</Button>
+          <Button className="d-block w-100" variant="primary" type="submit" disabled={Object.keys(errors).length || isLoading}>{isLoading ? <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/> : null}{isLoading ? "Загрузка..." : "Войти"}</Button>
           <Form.Text className="text-muted mt-3 text-end d-block">
             Еще не зарегистрированы? <Link to={auth.registration()}>Зарегистрироваться</Link>
           </Form.Text>

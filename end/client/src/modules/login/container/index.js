@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Login from "../component";
 import validate from "../../../utils/validations/index";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
 import { addAlert } from "../../../utils/alerts";
 import { authLogin } from "../../../store/auth/login";
 
@@ -12,8 +11,7 @@ export default function LoginContainer(props){
   const [password, changePassword] = useState('');
   const [errors, setErrors] = useState({});
   const dispatch = useDispatch();
-  const { isLoading, success, error, message } = useSelector((state) => state.authReducer);
-  const history = useHistory();
+  const { isLoading, success, message } = useSelector((state) => state.authReducer);
 
   let formItemsDefault = [
     {
@@ -49,9 +47,9 @@ export default function LoginContainer(props){
     if(isLoading)
       return;
     if(success){
-      setTimeout(() => {
-        // history.push(auth.login());
-      }, 3000);
+      // setTimeout(() => {
+      //   // history.push(auth.login());
+      // }, 3000);
     }else{
       addAlert(dispatch, message, 'danger');
     }

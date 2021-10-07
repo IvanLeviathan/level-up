@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 import HeaderContainer from '../components/Header/container';
+import ProfileContainer from '../components/Profile/container';
 import TodoListContainer from '../components/TodoList/container';
 import { auth, common } from '../mock-routes/index';
 import LoginContainer from '../modules/login/container';
@@ -19,7 +20,7 @@ export const useRoutes = (isAuthenticated) => {
                 <TodoListContainer/>
               </Route>
               <Route path={common.profile()} exact>
-                'Profile'
+                <ProfileContainer/>
               </Route>
               <Redirect to={common.todo()}/>
           </Switch>

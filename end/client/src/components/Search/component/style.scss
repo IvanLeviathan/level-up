@@ -1,0 +1,15 @@
+.search-input{
+  background: #484848;
+  color: #fff;
+  border-radius: 0;
+  border: none;
+  &::placeholder {
+    color: #fff;
+    opacity: .7;
+  }
+  &:focus{
+    background: #484848;
+    color: #fff;
+    box-shadow: none;
+  }
+}

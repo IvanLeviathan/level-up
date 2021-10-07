@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { registration, login, getUser } = require('../../controllers/auth/index');
+const { authMiddleware } = require('../../middleware/auth.middleware');
+const { registration, login, getUser, updateUser } = require('../../controllers/auth/index');
 
 const router = Router();
 
@@ -15,5 +16,6 @@ router.post('/login', [
 ], async (req, res) => login (req, res));
 
 router.post('/getuser', async (req, res) => getUser(req, res));
+router.post('/updateuser', authMiddleware, async (req, res) => updateUser (req, res));
 
 module.exports = router;

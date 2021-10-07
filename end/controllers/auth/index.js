@@ -63,4 +63,32 @@ async function getUser(req, res) {
     res.json({ user });
 }
 
-module.exports = { registration, login, getUser }
+async function updateUser(req, res) {
+    try {
+        const userId = req.body.id;
+        const {name, surname, age, sex, phone, email, password} = req.body;
+        const user = await User.findOne({userId});
+
+        delete req.body.id;
+        if(!!req.body.password){
+            const hashedPassword = await bcrypt.hash(req.body.password, 12);
+            req.body.password = hashedPassword;
+        }else
+            delete req.body.password;
+        
+        for(let key in req.body){
+            user[key] = req.body[key];
+        }
+
+
+        await user.save();
+
+        res.json({ message: 'Пользователь успешно обновлен' });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Не удалось обновить пользователя' })
+    }
+}
+
+module.exports = { registration, login, getUser, updateUser }

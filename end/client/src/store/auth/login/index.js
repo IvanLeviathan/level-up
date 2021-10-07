@@ -29,6 +29,7 @@ export const authLogin = (payload) => async (dispatch) => {
         dispatch(handlerErrorAuth(response));
 }
 
+
 export const authGetUserInfo = (userId) => async (dispatch) => {
     dispatch(startLoadingAuth());
     const response = await request('/api/auth/getuser', 'POST', {userId});
@@ -36,6 +37,18 @@ export const authGetUserInfo = (userId) => async (dispatch) => {
         dispatch(handlerSuccessLoadingAuth(response));
         delete response.success;
         dispatch(setUserInfo(response));
+    }else
+        dispatch(handlerErrorAuth(response));
+}
+
+export const updateUser = (payload, token) => async (dispatch) => {
+    dispatch(startLoadingAuth());
+    const response = await request('/api/auth/updateuser', 'POST', {...payload}, {
+        Authorisation: `Bearer ${token}`
+    });
+    if(response.success){
+        dispatch(authGetUserInfo(payload.id));
+        dispatch(handlerSuccessLoadingAuth(response));
     }else
         dispatch(handlerErrorAuth(response));
 }

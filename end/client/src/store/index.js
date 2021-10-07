@@ -4,14 +4,13 @@ import thunk from 'redux-thunk';
 import authReducer from './auth/index';
 import modalsReducer from './modals/index';
 import alertsReducer from './alerts/index';
-// import linkReducer from './link/index';
-// import todoReducer from './todo/index';
+import todoReducer from './todo/index';
 
 export const rootReducers = combineReducers({
     authReducer,
     modalsReducer,
-    alertsReducer
-    // todoReducer
+    alertsReducer,
+    todoReducer
 });
 
 const middleware = [thunk];

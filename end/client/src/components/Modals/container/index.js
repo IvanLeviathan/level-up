@@ -1,23 +1,32 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionHideModal } from '../../../store/modals';
-import ModalMarkup from '../component';
+import AddTodoContainer from "./AddTodoContainer";
+import ChangeTodoContainer from './ChangeTodoContainer';
+import DeleteTodoContainer from './DeleteTodoContainer';
+
+const modalCollection = {
+  AddTodoContainer,
+  ChangeTodoContainer,
+  DeleteTodoContainer
+};
 
 export default function ModalsContainer() {
-  const modal = useSelector(state => state.modalsReducer);
+  const modalWindow = useSelector((state) => state.modalsReducer);
   const dispatch = useDispatch();
-  if(!modal.length)
+
+  if (!modalWindow.length) {
     return null;
-  
-  const handlerHideModal = () => {
+  }
+
+  const hideModal = () => {
     dispatch(actionHideModal());
   }
 
-  return (
-    <ModalMarkup
-      show = {modal.length}
-      modalSettings = {modal[modal.length - 1]}
-      handleClose = {handlerHideModal}
-    />
-  )
+  return <>
+    {modalWindow.map((modal) => {
+      const CurrentModal = modalCollection[modal.name];
+      return <CurrentModal {...modal} key={modal.name} hideModal={hideModal} />;
+    })}
+  </>
 }

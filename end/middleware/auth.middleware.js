@@ -6,18 +6,17 @@ function authMiddleware (req, res, next) {
     }
 
     try {
-        console.log(req.headers);
         const token = req.headers.authorisation.split(' ')[1];
         
         if (!token) {
-            return res.status(401).json({ message: 'Нет авторизации' });
+            return res.status(401).json({ message: 'Не авторизован' });
         }
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decoded;
         next();
     } catch (error) {
         console.log(error);
-        res.status(401).json({ message: 'Нет авторизации!!!' })
+        res.status(401).json({ message: 'Не авторизован' })
     }
 };
 
